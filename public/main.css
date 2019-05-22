@@ -3,6 +3,7 @@
   --sun-stroke-color: #db9900;
   --blue-wave-top: 0, 164, 215;
   --blue-wave-bottom: 0, 90, 164;
+  --blue-bg: 191, 237, 251;
   --water-text-color: #f1f0ed;
   --water-stroke-color: #006ab7;
   --body-font: Harmattan;
@@ -84,9 +85,17 @@ a:visited {
 
 .aqr-label {
   display: flex;
-  
+  width: 70%; 
   margin-bottom: 1em;
-  height: 3em; 
+  height: 2em; 
+}
+
+.aqr-input-textarea:focus {
+  outline: 1px solid black;
+}
+
+.aqr-textarea-label {
+  height: 6em;
 }
 
 .aqr-form {
@@ -94,16 +103,23 @@ a:visited {
   flex-direction: column;
   align-items: center;
   justify-items: center;
-  background: white;
+  background: rgba(var(--blue-bg), .8);
   padding-top: 2em;
-  box-shadow: 0 0 1px rgba(var(--blue-wave-bottom), 1), 0 2px 5px rgba(var(--blue-wave-top), 1);
+  box-shadow: 0 0 1px rgba(var(--blue-wave-top), .4), 0 2px 5px rgba(var(--blue-wave-top), .5);
   border-radius: 5px;
   width: 70%;
   margin: 1em auto;
 }
+@media(max-width: 600px) {
+.aqr-form {
+  width: 100%;
+}
+}
 
 .aqr-input {
+  background: var(--blue-bg);
   height: 1rem;
+  width: 100%; 
   border: none;
   border-bottom: 1px solid #bdbdbd;
 }
@@ -113,13 +129,29 @@ a:visited {
   border-bottom: 1px solid #404040;
 }
 
+.aqr-input:focus + .aqr-form-icon {
+  opacity: 1;
+  transform: translate(0);
+}
+
+.aqr-input-textarea {
+ width: 100%;
+ height: 10em;
+}
+
 .aqr-form-icon {
+  order: -1;
+  transition: all var(--transition-time);
+  transform: translate(-100%);
   fill: none;
   stroke: black;
-  stroke-width: .5;
-  width: 1rem;
-  margin-bottom: 2em;
+  stroke-width: .8;
+  width: .8rem;
+  margin-bottom: 1em;
+  opacity: 0;
 }
+
+
 @media(max-width: 600px) {
 .aqr-icon {
   width: 13%;
@@ -274,12 +306,16 @@ header {
   background: rgba(var(--blue-wave-top), 1);
   grid-area: top;
   display: grid;
-  grid-template-columns: 3em 1fr auto;
+  grid-template-columns: 4em 1fr auto;
   grid-template-areas: "logo . top-nav";
 }
 
 .aqr-header-sticky {
   position: sticky;
+  position: -webkit-sticky;
+  position: -moz-sticky;
+  position: -ms-sticky;
+  position: -o-sticky;
   top: 0px;
 }
 
@@ -354,10 +390,15 @@ header {
   transition: all var(--transition-time) ease;
 }
 
+.wave:hover {
+  stroke: gray;
+}
+
 .wave {
   stroke: black;
   stroke-width: .2;
 }
+
 .wave-grad-start {
   stop-color: rgba(var(--blue-wave-top), .1);
 }

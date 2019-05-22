@@ -457,7 +457,7 @@ var Logo = function (_Component) {
     value: function render() {
       return _react2.default.createElement(
         "svg",
-        { viewBox: "-1.4 -0.8 35 36", height: "100%", width: "100%",
+        { viewBox: "-1.4 -0.8 35.8 36", height: "100%", width: "100%",
           xmlns: "http://www.w3.org/2000/svg", version: "1.1", xmlnsXlink: "http://www.w3.org/1999/xlink", className: "aqr-logo", "aria-hidden": "true" },
         _react2.default.createElement(
           "defs",
@@ -645,95 +645,10 @@ exports.default = SVGSprites;
 /***/ }),
 /* 12 */,
 /* 13 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
 "use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var About = function (_Component) {
-  _inherits(About, _Component);
-
-  function About() {
-    _classCallCheck(this, About);
-
-    return _possibleConstructorReturn(this, (About.__proto__ || Object.getPrototypeOf(About)).apply(this, arguments));
-  }
-
-  _createClass(About, [{
-    key: "render",
-    value: function render() {
-      return _react2.default.createElement(
-        "section",
-        { className: "aqr-about" },
-        _react2.default.createElement(
-          "div",
-          { className: "aqr-section-head-wrapper" },
-          _react2.default.createElement(
-            "svg",
-            { className: "aqr-heading-icon", "aria-hidden": "true" },
-            _react2.default.createElement("use", { xlinkHref: "#aqr-about-icon" })
-          ),
-          _react2.default.createElement(
-            "h3",
-            { className: "aqr-section-heading" },
-            "About Us"
-          )
-        ),
-        _react2.default.createElement(
-          "p",
-          null,
-          "Welcome! AquaRing Energy is a startup based in Bellevue, Washington. We are focused on renewable energy and energy storage technology, and providing power to communities worldwide. We would like you to share in our journey to provide safe, reliable, renewable energy to the world. Please use the form below to let us know you would like to receive our newsletter, or to otherwise get in touch with us. Thank you!"
-        ),
-        _react2.default.createElement(
-          "form",
-          { className: "aqr-form" },
-          _react2.default.createElement(
-            "label",
-            { className: "aqr-label" },
-            _react2.default.createElement("input", { type: "text", className: "aqr-input", name: "username", placeholder: "Name" }),
-            _react2.default.createElement(
-              "svg",
-              { className: "aqr-form-icon", "aria-hidden": "true" },
-              _react2.default.createElement("use", { xlinkHref: "#aqr-input-icon" })
-            )
-          ),
-          _react2.default.createElement(
-            "label",
-            { className: "aqr-label" },
-            _react2.default.createElement(
-              "svg",
-              { className: "aqr-form-icon", "aria-hidden": "true" },
-              _react2.default.createElement("use", { xlinkHref: "#aqr-input-icon" })
-            ),
-            _react2.default.createElement("input", { type: "password", className: "aqr-input", name: "password", placeholder: "Email" })
-          )
-        )
-      );
-    }
-  }]);
-
-  return About;
-}(_react.Component);
-
-exports.default = About;
+throw new Error("Module build failed: SyntaxError: Expected corresponding JSX closing tag for <input> (33:9)\n\n\u001b[0m \u001b[90m 31 | \u001b[39m             \u001b[33m<\u001b[39m\u001b[33mtextarea\u001b[39m className\u001b[33m=\u001b[39m\u001b[32m\"aqr-input-textarea\"\u001b[39m name\u001b[33m=\u001b[39m\u001b[32m\"message\"\u001b[39m \u001b[33m/\u001b[39m\u001b[33m>\u001b[39m\n \u001b[90m 32 | \u001b[39m           \u001b[33m<\u001b[39m\u001b[33m/\u001b[39m\u001b[33mlabel\u001b[39m\u001b[33m>\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 33 | \u001b[39m         \u001b[33m<\u001b[39m\u001b[33m/\u001b[39m\u001b[33mform\u001b[39m\u001b[33m>\u001b[39m\n \u001b[90m    | \u001b[39m         \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 34 | \u001b[39m         \u001b[33m<\u001b[39m\u001b[33m/\u001b[39m\u001b[33msection\u001b[39m\u001b[33m>\u001b[39m\n \u001b[90m 35 | \u001b[39m    )\n \u001b[90m 36 | \u001b[39m  }\u001b[0m\n");
 
 /***/ })
 /******/ ]);
