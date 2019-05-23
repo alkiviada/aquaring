@@ -309,11 +309,24 @@ var Home = function (_Component) {
             "section",
             { className: "aqr-tech" },
             _react2.default.createElement(
-              "h3",
-              null,
-              "Our Technology"
+              "div",
+              { className: "aqr-section-head-wrapper" },
+              _react2.default.createElement(
+                "svg",
+                { className: "aqr-heading-icon", "aria-hidden": "true" },
+                _react2.default.createElement("use", { xlinkHref: "#aqr-tech-icon" })
+              ),
+              _react2.default.createElement(
+                "h3",
+                null,
+                "Our Technology"
+              )
             ),
-            _react2.default.createElement("p", null)
+            _react2.default.createElement(
+              "p",
+              null,
+              "Renewable energy is not dependable. Today, most of the world's energy needs are still met by the polluting energy resources. AquaRing Energy's solution is an offshore wave energy converter with intertial energy storage. Our system is submersible, so it can continue to generate during storms and thus act as a safety net for the grid. Our technology is a demand-response based, so unlike other sources of renewable energy, it can deliver consistent power. Ocean wave energy is a huge and essentially untapped resource. AquaRing Energy's technology can cost-effectively tap into it, and ultimately supply as much as one third of the US demand for reliable, grid stabilizing, electricity."
+            )
           )
         ),
         _react2.default.createElement("footer", { role: "contentinfo" })
@@ -463,7 +476,7 @@ var Logo = function (_Component) {
           null,
           _react2.default.createElement(
             "mask",
-            { id: "masking" },
+            { id: "sun-masking" },
             _react2.default.createElement("circle", { fill: "yellow",
               r: "5",
               cx: "23",
@@ -550,7 +563,7 @@ var Logo = function (_Component) {
             r: "10",
             cx: "23",
             cy: "6",
-            mask: "url(#masking)"
+            mask: "url(#sun-masking)"
           }),
           _react2.default.createElement(
             "text",
@@ -629,6 +642,109 @@ var SVGSprites = function (_Component) {
           "symbol",
           { id: "aqr-input-icon", viewBox: "0 0 10 10" },
           _react2.default.createElement("path", { d: "M 0 0 L 5 5 L 0 10" })
+        ),
+        _react2.default.createElement(
+          "symbol",
+          { viewBox: "-3 -2 42 40", id: "aqr-tech-icon" },
+          _react2.default.createElement(
+            "defs",
+            null,
+            _react2.default.createElement("rect", { x: "16", y: "-1", height: "36", width: "2", id: "line" }),
+            _react2.default.createElement("rect", { x: "16", y: "8", width: "8.5", height: "2", id: "line-small" }),
+            _react2.default.createElement("circle", { cx: "23.5", cy: "7", r: "1.5", id: "cog-small" }),
+            _react2.default.createElement(
+              "mask",
+              { id: "cog-masking" },
+              _react2.default.createElement(
+                "g",
+                { stroke: "white", fill: "white" },
+                _react2.default.createElement("use", { xlinkHref: "#cog-small" })
+              ),
+              _react2.default.createElement("path", {
+                d: " M 16 0 A 1 1 0 0 1 16 15 ",
+                stroke: "black",
+                "stroke-width": "1",
+                fill: "black"
+              })
+            ),
+            _react2.default.createElement(
+              "mask",
+              { id: "line-masking" },
+              _react2.default.createElement(
+                "g",
+                { stroke: "white", fill: "white" },
+                _react2.default.createElement("use", { xlinkHref: "#line-small" }),
+                _react2.default.createElement("use", { xlinkHref: "#line-small", transform: "rotate(-20) translate(-4.2, 3.3)" }),
+                _react2.default.createElement("use", { xlinkHref: "#line-small", transform: "rotate(17) translate(1.7, -3.3)" }),
+                _react2.default.createElement("use", { xlinkHref: "#line-small", transform: "rotate(35) translate(1.5, -8)" })
+              ),
+              _react2.default.createElement("path", {
+                d: " M 16 2  A 1 1 0 0 1 16 15 A 1 1 0 1 1 16 2 ",
+                stroke: "black",
+                strokeWidth: "2",
+                fill: "black"
+              })
+            ),
+            _react2.default.createElement(
+              "mask",
+              { id: "masking" },
+              _react2.default.createElement(
+                "g",
+                { fill: "white", stroke: "white", strokeWidth: "2" },
+                _react2.default.createElement("use", { xlinkHref: "#line", stroke: "white" }),
+                _react2.default.createElement("use", { xlinkHref: "#line", transform: "rotate(90) translate(0, -33)" }),
+                _react2.default.createElement("use", { xlinkHref: "#line", transform: "rotate(45) translate(7, -16.3)" }),
+                _react2.default.createElement("use", { xlinkHref: "#line", transform: "rotate(-45) translate(-17, 6.3)" }),
+                _react2.default.createElement("use", { xlinkHref: "#line", transform: "rotate(-22.5) translate(-8, 5)" }),
+                _react2.default.createElement("use", { xlinkHref: "#line", transform: "rotate(22.5) translate(6, -7.3)" }),
+                _react2.default.createElement("use", { xlinkHref: "#line", transform: "rotate(67.5) translate(5, -25.3)" }),
+                _react2.default.createElement("use", { xlinkHref: "#line", transform: "rotate(-67.5) translate(-26, 4.3)" })
+              ),
+              _react2.default.createElement("circle", { fill: "black",
+                r: "16",
+                cx: "16",
+                cy: "17",
+                stroke: "black",
+                strokeWidth: "2"
+              })
+            )
+          ),
+          _react2.default.createElement(
+            "g",
+            { mask: "url(#masking)", fill: "black", stroke: "black" },
+            _react2.default.createElement("use", { xlinkHref: "#line" }),
+            _react2.default.createElement("use", { xlinkHref: "#line", transform: "rotate(90) translate(0, -33)" }),
+            _react2.default.createElement("use", { xlinkHref: "#line", transform: "rotate(45) translate(7, -16.3)" }),
+            _react2.default.createElement("use", { xlinkHref: "#line", transform: "rotate(-45) translate(-17, 6.3)" }),
+            _react2.default.createElement("use", { xlinkHref: "#line", transform: "rotate(-22.5) translate(-8, 5)" }),
+            _react2.default.createElement("use", { xlinkHref: "#line", transform: "rotate(22.5) translate(6, -7.3)" }),
+            _react2.default.createElement("use", { xlinkHref: "#line", transform: "rotate(67.5) translate(5, -25.3)" }),
+            _react2.default.createElement("use", { xlinkHref: "#line", transform: "rotate(-67.5) translate(-26, 4.3)" })
+          ),
+          _react2.default.createElement(
+            "g",
+            { mask: "url(#line-masking)" },
+            _react2.default.createElement("use", { xlinkHref: "#line-small" }),
+            _react2.default.createElement("use", { xlinkHref: "#line-small", transform: "rotate(-20) translate(-4.2, 3.3)" }),
+            _react2.default.createElement("use", { xlinkHref: "#line-small", transform: "rotate(17) translate(1.7, -3.3)" }),
+            _react2.default.createElement("use", { xlinkHref: "#line-small", transform: "rotate(35) translate(1.5, -8)" })
+          ),
+          _react2.default.createElement("circle", { fill: "none",
+            r: "16",
+            cx: "16",
+            cy: "17",
+            stroke: "black",
+            strokeWidth: "2"
+          }),
+          _react2.default.createElement("path", { fill: "none", stroke: "black", strokeWidth: ".8",
+            d: " M 3 28 C 15 20 5 10 16 2 L 16 25 M -1 17 C 7 24 12 24 16 15 M 16 2 A 1 1 0 0 1 16 15 C 22 15 23 33 40 32 "
+          }),
+          _react2.default.createElement("path", {
+            d: " M 16 2 A 1 1 0 0 1 16 15 ",
+            stroke: "black",
+            strokeWidth: "2",
+            fill: "none"
+          })
         )
       );
     }

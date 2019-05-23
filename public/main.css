@@ -83,11 +83,11 @@ a:visited {
   margin-top: 2em;
   stroke: black;
   stroke-width: 1px;
+  margin-right: .4em;
 }
 @media(max-width: 600px) {
 .aqr-heading-icon {
   stroke-width: 2px;
-  margin-right: .4em;
 }
 }
 
@@ -147,7 +147,7 @@ label {
 }
 
 .aqr-input {
-  background: var(--blue-bg);
+  background: rgba(var(--blue-bg), 1);
   margin-bottom: 1em;
   height: 2rem;
   width: 100%; 
@@ -353,6 +353,7 @@ header {
 }
 
 .aqr-header-sticky {
+  z-index: 10;
   position: sticky;
   position: -webkit-sticky;
   position: -moz-sticky;
