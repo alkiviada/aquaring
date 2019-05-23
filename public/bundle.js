@@ -15173,7 +15173,6 @@ var Home = function (_Component) {
     value: function handleScroll(e) {
       var lastScrollY = window.scrollY;
       var hCn = '';
-      console.log(lastScrollY);
       if (lastScrollY > 58) {
         this.setState({
           headerCn: 'aqr-header-sticky'
@@ -15489,10 +15488,169 @@ exports.default = Logo;
 
 /***/ }),
 /* 64 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-throw new Error("Module build failed: SyntaxError: Expected corresponding JSX closing tag for <input> (33:9)\n\n\u001b[0m \u001b[90m 31 | \u001b[39m             \u001b[33m<\u001b[39m\u001b[33mtextarea\u001b[39m className\u001b[33m=\u001b[39m\u001b[32m\"aqr-input-textarea\"\u001b[39m name\u001b[33m=\u001b[39m\u001b[32m\"message\"\u001b[39m \u001b[33m/\u001b[39m\u001b[33m>\u001b[39m\n \u001b[90m 32 | \u001b[39m           \u001b[33m<\u001b[39m\u001b[33m/\u001b[39m\u001b[33mlabel\u001b[39m\u001b[33m>\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 33 | \u001b[39m         \u001b[33m<\u001b[39m\u001b[33m/\u001b[39m\u001b[33mform\u001b[39m\u001b[33m>\u001b[39m\n \u001b[90m    | \u001b[39m         \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 34 | \u001b[39m         \u001b[33m<\u001b[39m\u001b[33m/\u001b[39m\u001b[33msection\u001b[39m\u001b[33m>\u001b[39m\n \u001b[90m 35 | \u001b[39m    )\n \u001b[90m 36 | \u001b[39m  }\u001b[0m\n");
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var About = function (_Component) {
+  _inherits(About, _Component);
+
+  function About(props) {
+    _classCallCheck(this, About);
+
+    var _this = _possibleConstructorReturn(this, (About.__proto__ || Object.getPrototypeOf(About)).call(this, props));
+
+    _this.userNameLabelRef = _react2.default.createRef();
+    _this.emailLabelRef = _react2.default.createRef();
+    _this.messageLabelRef = _react2.default.createRef();
+    _this.state = { username: { 'value': '', 'label_cn': 'floating-label' },
+      email: { 'value': '', 'label_cn': 'floating-label' },
+      message: { 'value': '', 'label_cn': 'floating-label' }
+    };
+    _this.inputOrLabel = _this.inputOrLabel.bind(_this);
+    _this.hideLabel = _this.hideLabel.bind(_this);
+    _this.showLabel = _this.showLabel.bind(_this);
+    _this.handleValueChange = _this.handleValueChange.bind(_this);
+    return _this;
+  }
+
+  _createClass(About, [{
+    key: 'handleValueChange',
+    value: function handleValueChange(e) {
+      var key = e.target.id;
+      console.log(this.state);
+      console.log(key);
+      this.setState(_defineProperty({}, key, { 'label_cn': this.state[key]['label_cn'], 'value': e.target.value }));
+    }
+  }, {
+    key: 'hideLabel',
+    value: function hideLabel(e, labelRef) {
+      var key = labelRef.current.htmlFor;
+      this.setState(_defineProperty({}, key, { 'value': e.target.value, 'label_cn': 'floating-label top-label' }));
+    }
+  }, {
+    key: 'showLabel',
+    value: function showLabel(e, labelRef) {
+      var key = labelRef.current.htmlFor;
+      this.setState(_defineProperty({}, key, { 'value': e.target.value, 'label_cn': 'floating-label' }));
+    }
+  }, {
+    key: 'inputOrLabel',
+    value: function inputOrLabel(e, labelRef) {
+      if (e.target.value == "") {
+        this.showLabel(e, labelRef);
+      } else if (e.target.value != "") {
+        this.hideLabel(e, labelRef);
+      }
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _this2 = this;
+
+      return _react2.default.createElement(
+        'section',
+        { className: 'aqr-about' },
+        _react2.default.createElement(
+          'div',
+          { className: 'aqr-section-head-wrapper' },
+          _react2.default.createElement(
+            'svg',
+            { className: 'aqr-heading-icon', 'aria-hidden': 'true' },
+            _react2.default.createElement('use', { xlinkHref: '#aqr-about-icon' })
+          ),
+          _react2.default.createElement(
+            'h3',
+            { className: 'aqr-section-heading' },
+            'About Us'
+          )
+        ),
+        _react2.default.createElement(
+          'p',
+          null,
+          'Welcome! AquaRing Energy is a startup based in Bellevue, Washington. We are focused on renewable energy and energy storage technology, and providing power to communities worldwide. We would like you to share in our journey to provide safe, reliable, renewable energy to the world. Please use the form below to let us know you would like to receive our newsletter, or to otherwise get in touch with us. Thank you!'
+        ),
+        _react2.default.createElement(
+          'form',
+          { className: 'aqr-form' },
+          _react2.default.createElement(
+            'div',
+            { className: 'aqr-input-wrapper' },
+            _react2.default.createElement(
+              'label',
+              { className: this.state.username.label_cn, htmlFor: 'username', ref: this.userNameLabelRef },
+              'Name'
+            ),
+            _react2.default.createElement('input', { className: 'aqr-input', onFocus: function onFocus(e) {
+                return _this2.hideLabel(e, _this2.userNameLabelRef);
+              }, onInput: function onInput(e) {
+                return _this2.inputOrLabel(e, _this2.userNameLabelRef);
+              }, onBlur: function onBlur(e) {
+                return _this2.inputOrLabel(e, _this2.userNameLabelRef);
+              }, type: 'text', value: this.state.username.value, id: 'username', name: 'username', onChange: this.handleValueChange })
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'aqr-input-wrapper' },
+            _react2.default.createElement(
+              'label',
+              { className: this.state.email.label_cn, htmlFor: 'email', ref: this.emailLabelRef },
+              'Email'
+            ),
+            _react2.default.createElement('input', { className: 'aqr-input', onFocus: function onFocus(e) {
+                return _this2.hideLabel(e, _this2.emailLabelRef);
+              }, onInput: function onInput(e) {
+                return _this2.inputOrLabel(e, _this2.emailLabelRef);
+              }, onBlur: function onBlur(e) {
+                return _this2.inputOrLabel(e, _this2.emailLabelRef);
+              }, type: 'email', value: this.state.email.value, id: 'email', name: 'email', onChange: this.handleValueChange })
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'aqr-input-wrapper' },
+            _react2.default.createElement(
+              'label',
+              { className: this.state.message.label_cn, htmlFor: 'message', ref: this.messageLabelRef },
+              'What you have to say'
+            ),
+            _react2.default.createElement('textarea', { className: 'aqr-input-textarea', onFocus: function onFocus(e) {
+                return _this2.hideLabel(e, _this2.messageLabelRef);
+              }, onInput: function onInput(e) {
+                return _this2.inputOrLabel(e, _this2.messageLabelRef);
+              }, onBlur: function onBlur(e) {
+                return _this2.inputOrLabel(e, _this2.messageLabelRef);
+              }, type: 'message', value: this.state.message.value, id: 'message', name: 'message', onChange: this.handleValueChange })
+          )
+        )
+      );
+    }
+  }]);
+
+  return About;
+}(_react.Component);
+
+exports.default = About;
 
 /***/ }),
 /* 65 */
@@ -15541,11 +15699,9 @@ var SVGSprites = function (_Component) {
           _react2.default.createElement("circle", { fill: "none",
             r: "17",
             cx: "16",
-            cy: "17",
-            stroke: "black",
-            strokeWidth: "1"
+            cy: "17"
           }),
-          _react2.default.createElement("path", { fill: "none", stroke: "black", strokeWidth: "1",
+          _react2.default.createElement("path", { fill: "none",
             d: " M 3 28 C 15 20 5 10 16 0 L 16 25 M -1 17 C 7 24 12 24 16 15 M 16 0 A 1 1 0 0 1 16 15 C 22 15 23 33 40 32 "
           })
         ),

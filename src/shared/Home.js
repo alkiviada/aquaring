@@ -13,7 +13,6 @@ class Home extends Component {
   handleScroll(e) {
     const lastScrollY = window.scrollY
     const hCn = '';
-    console.log(lastScrollY)
     if (lastScrollY > 58) {
       this.setState({
       headerCn: 'aqr-header-sticky'

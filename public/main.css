@@ -81,21 +81,46 @@ a:visited {
   width: 8%;
   height: auto;
   margin-top: 2em;
+  stroke: black;
+  stroke-width: 1px;
+}
+@media(max-width: 600px) {
+.aqr-heading-icon {
+  stroke-width: 2px;
+  margin-right: .4em;
+}
 }
 
-.aqr-label {
-  display: flex;
-  width: 70%; 
+label {
   margin-bottom: 1em;
-  height: 2em; 
+}
+
+.floating-label {
+  color: #000;
+  display: inline-block;
+  line-height: 1.5;
+  font-weight: 300;
+  font-family: var(--title-font);
+  font-size: .8rem;
+  position: absolute;
+  top: .8em;
+  left: .3em;
+  transition: .1s ease;
+  cursor: text;
+}
+
+.floating-label.top-label{
+  background: rgba(var(--blue-bg), 1);
+  text-transform: uppercase;
+  font-family: var(--subtitle-font);
+  right: 0;
+  left: auto;
+  top: -1em;
+  padding-left: .5em;
 }
 
 .aqr-input-textarea:focus {
   outline: 1px solid black;
-}
-
-.aqr-textarea-label {
-  height: 6em;
 }
 
 .aqr-form {
@@ -103,8 +128,8 @@ a:visited {
   flex-direction: column;
   align-items: center;
   justify-items: center;
-  background: rgba(var(--blue-bg), .8);
-  padding-top: 2em;
+  background: rgba(var(--blue-bg), 1);
+  padding-top: 1.5em;
   box-shadow: 0 0 1px rgba(var(--blue-wave-top), .4), 0 2px 5px rgba(var(--blue-wave-top), .5);
   border-radius: 5px;
   width: 70%;
@@ -116,17 +141,23 @@ a:visited {
 }
 }
 
+.aqr-input-wrapper {
+  position: relative;
+  width: 80%;
+}
+
 .aqr-input {
   background: var(--blue-bg);
-  height: 1rem;
+  margin-bottom: 1em;
+  height: 2rem;
   width: 100%; 
-  border: none;
-  border-bottom: 1px solid #bdbdbd;
+  border: 1px solid #bdbdbd;
+  font-size: 1.2rem;
 }
 
 .aqr-input:focus {
   outline: none;
-  border-bottom: 1px solid #404040;
+  border-bottom: 1.7px solid #404040;
 }
 
 .aqr-input:focus + .aqr-form-icon {
@@ -135,8 +166,12 @@ a:visited {
 }
 
 .aqr-input-textarea {
- width: 100%;
- height: 10em;
+  border: 1px solid #bdbdbd;
+  font-size: 1.2rem;
+  width: 100%;
+  height: 6em;
+  background: var(--blue-bg);
+  margin-bottom: 1em;
 }
 
 .aqr-form-icon {
@@ -208,9 +243,16 @@ h2 {
   display: grid;
   box-shadow: 0 0.5px 30px 25px #015ba1, inset 0 -25px 15px -15px #005da5;
   background-image: url("sea.jpg");
+  background-color: #005da5;
   background-size: 100% 100%;
   grid-area: title;
   margin-bottom: 2em;
+}
+
+
+.aqr-about-icon {
+ stroke: red;
+ 
 }
 
 main {

@@ -10,10 +10,8 @@ class SVGSprites extends Component {
          r="17"
 	 cx="16"
 	 cy="17"
-         stroke="black"
-         strokeWidth="1"
 	 />
-        <path fill="none" stroke="black" strokeWidth="1"
+        <path fill="none" 
          d="
          M 3 28
          C 15 20 5 10 16 0
