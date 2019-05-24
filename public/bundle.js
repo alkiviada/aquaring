@@ -15242,6 +15242,34 @@ var Home = function (_Component) {
               null,
               "Renewable energy is not dependable. Today, most of the world's energy needs are still met by the polluting energy resources. AquaRing Energy's solution is an offshore wave energy converter with intertial energy storage. Our system is submersible, so it can continue to generate during storms and thus act as a safety net for the grid. Our technology is a demand-response based, so unlike other sources of renewable energy, it can deliver consistent power. Ocean wave energy is a huge and essentially untapped resource. AquaRing Energy's technology can cost-effectively tap into it, and ultimately supply as much as one third of the US demand for reliable, grid stabilizing, electricity."
             )
+          ),
+          _react2.default.createElement(
+            "section",
+            { className: "aqr-news" },
+            _react2.default.createElement(
+              "div",
+              { className: "aqr-section-head-wrapper" },
+              _react2.default.createElement(
+                "svg",
+                { className: "aqr-heading-icon", "aria-hidden": "true" },
+                _react2.default.createElement("use", { xlinkHref: "#aqr-news-icon" })
+              ),
+              _react2.default.createElement(
+                "h3",
+                null,
+                "Our News"
+              )
+            ),
+            _react2.default.createElement(
+              "h4",
+              null,
+              "AquaRing Accepted into Cleantech Open Accelerator"
+            ),
+            _react2.default.createElement(
+              "p",
+              null,
+              "Cleantech Open is the world\u2019s largest clean technology accelerator program run by LACI (Los Angeles Cleantech Incubator). Its mission is to accelerate the growth of the cleantech industry through information exchange, thought leadership, and strategic partnerships."
+            )
           )
         ),
         _react2.default.createElement("footer", { role: "contentinfo" })
@@ -15903,6 +15931,35 @@ var SVGSprites = function (_Component) {
             stroke: "black",
             strokeWidth: "2",
             fill: "none"
+          })
+        ),
+        _react2.default.createElement(
+          "symbol",
+          { id: "aqr-news-icon", viewBox: "-1 -8 40 40" },
+          _react2.default.createElement("rect", { x: "0", y: "-6", width: "36", height: "40", "stroke-width": "1", rx: "3", stroke: "black", fill: "none" }),
+          _react2.default.createElement(
+            "text",
+            { x: "3", y: "5", className: "aqr-news-caps" },
+            "a"
+          ),
+          _react2.default.createElement("path", { className: "aqr-news-waves",
+            d: " M 10 3 A 1 1 0 0 0 16 3 A 1 1 0 0 0 20 3 A 1 1 0 0 0 24 3 A 1 1 0 0 0 28 3 A 1 1 0 0 0 32 3 "
+          }),
+          _react2.default.createElement(
+            "text",
+            { x: "1", y: "18", className: "aqr-news-caps" },
+            "Q"
+          ),
+          _react2.default.createElement("path", { className: "aqr-news-waves",
+            d: " M 20 18 A 1 1 0 0 0 24 18 A 1 1 0 0 0 28 18 A 1 1 0 0 0 32 18 "
+          }),
+          _react2.default.createElement(
+            "text",
+            { x: "3", y: "31", className: "aqr-news-caps" },
+            "R"
+          ),
+          _react2.default.createElement("path", { className: "aqr-news-waves",
+            d: " M 12.2 30.8 Q 14 29.8 16 27 A 1 1 0 0 0 20 27 A 1 1 0 0 0 24 27 A 1 1 0 0 0 28 27 A 1 1 0 0 0 32 27 "
           })
         )
       );

@@ -226,6 +226,22 @@ label {
 .aqr-tech {
   grid-area: tech;
 }
+.aqr-news {
+  grid-area: news;
+}
+
+.aqr-news-caps {
+  font-family: var(--title-font);
+  font-size: .8rem;
+  stroke: none;
+}
+
+.aqr-news-waves {
+  fill: none;
+  stroke: black;
+  stroke-width: .8px;
+
+}
 
 p {
   font-size: 1.4rem;
@@ -233,6 +249,15 @@ p {
 
 h3 {
   font-family: var(--title-font);
+}
+
+
+h4 {
+  font-family: var(--subtitle-font);
+  font-size: 1.4rem;
+  margin-top: .4em;
+  letter-spacing: 1.4px;
+  margin-bottom: 1em;
 }
 
 h1 {
@@ -282,7 +307,8 @@ main {
   grid-template-rows: 16em 1fr;
   grid-template-areas: "title title title"
     ". about ."
-    ". tech .";
+    ". tech ."
+    ". news .";
 }
 
 @media(max-width: 1000px) {
