@@ -107,7 +107,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var app = (0, _express2.default)();
 
 app.use((0, _cors2.default)());
-var bodyParser = __webpack_require__(16);
+var bodyParser = __webpack_require__(12);
 app.use(bodyParser.json()); // to support JSON-encoded bodies
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -133,10 +133,15 @@ app.get("*", function (req, res, next) {
 app.post('/', function (req, res) {
   console.log('i am sending response to post');
   var message = req.body;
-  var msg_map = Object.keys(message).map(function (k) {
+  var msg = Object.keys(message).map(function (k) {
     return message[k].value;
+  }).join('\n') + '\n';
+  var fs = __webpack_require__(13);
+
+  fs.appendFile('public/message.txt', msg, function (err) {
+    if (err) throw err;
+    console.log('Saved!');
   });
-  console.log(msg_map);
   res.status(200).send({ 'message_recieved': '1' });
 });
 
@@ -239,7 +244,7 @@ var _Header = __webpack_require__(8);
 
 var _Header2 = _interopRequireDefault(_Header);
 
-var _About = __webpack_require__(13);
+var _About = __webpack_require__(10);
 
 var _About2 = _interopRequireDefault(_About);
 
@@ -600,179 +605,7 @@ var Logo = function (_Component) {
 exports.default = Logo;
 
 /***/ }),
-/* 10 */,
-/* 11 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var SVGSprites = function (_Component) {
-  _inherits(SVGSprites, _Component);
-
-  function SVGSprites() {
-    _classCallCheck(this, SVGSprites);
-
-    return _possibleConstructorReturn(this, (SVGSprites.__proto__ || Object.getPrototypeOf(SVGSprites)).apply(this, arguments));
-  }
-
-  _createClass(SVGSprites, [{
-    key: "render",
-    value: function render() {
-      return _react2.default.createElement(
-        "svg",
-        { className: "svg-icons", width: "0", height: "0", "aria-hidden": "true",
-          xmlns: "http://www.w3.org/2000/svg", version: "1.1", xmlnsXlink: "http://www.w3.org/1999/xlink" },
-        _react2.default.createElement(
-          "symbol",
-          { id: "aqr-about-icon", viewBox: "-1.4 -0.2 42 38" },
-          _react2.default.createElement("circle", { fill: "none",
-            r: "17",
-            cx: "16",
-            cy: "17"
-          }),
-          _react2.default.createElement("path", { fill: "none",
-            d: " M 3 28 C 15 20 5 10 16 0 L 16 25 M -1 17 C 7 24 12 24 16 15 M 16 0 A 1 1 0 0 1 16 15 C 22 15 23 33 40 32 "
-          })
-        ),
-        _react2.default.createElement(
-          "symbol",
-          { id: "aqr-input-icon", viewBox: "0 0 10 10" },
-          _react2.default.createElement("path", { d: "M 0 0 L 5 5 L 0 10" })
-        ),
-        _react2.default.createElement(
-          "symbol",
-          { viewBox: "-3 -2 42 40", id: "aqr-tech-icon" },
-          _react2.default.createElement(
-            "defs",
-            null,
-            _react2.default.createElement("rect", { x: "16", y: "-1", height: "36", width: "2", id: "line" }),
-            _react2.default.createElement("rect", { x: "16", y: "8", width: "8.5", height: "2", id: "line-small" }),
-            _react2.default.createElement("circle", { cx: "23.5", cy: "7", r: "1.5", id: "cog-small" }),
-            _react2.default.createElement(
-              "mask",
-              { id: "cog-masking" },
-              _react2.default.createElement(
-                "g",
-                { stroke: "white", fill: "white" },
-                _react2.default.createElement("use", { xlinkHref: "#cog-small" })
-              ),
-              _react2.default.createElement("path", {
-                d: " M 16 0 A 1 1 0 0 1 16 15 ",
-                stroke: "black",
-                strokeWidth: "1",
-                fill: "black"
-              })
-            ),
-            _react2.default.createElement(
-              "mask",
-              { id: "line-masking" },
-              _react2.default.createElement(
-                "g",
-                { stroke: "white", fill: "white" },
-                _react2.default.createElement("use", { xlinkHref: "#line-small" }),
-                _react2.default.createElement("use", { xlinkHref: "#line-small", transform: "rotate(-20) translate(-4.2, 3.3)" }),
-                _react2.default.createElement("use", { xlinkHref: "#line-small", transform: "rotate(17) translate(1.7, -3.3)" }),
-                _react2.default.createElement("use", { xlinkHref: "#line-small", transform: "rotate(35) translate(1.5, -8)" })
-              ),
-              _react2.default.createElement("path", {
-                d: " M 16 2  A 1 1 0 0 1 16 15 A 1 1 0 1 1 16 2 ",
-                stroke: "black",
-                strokeWidth: "2",
-                fill: "black"
-              })
-            ),
-            _react2.default.createElement(
-              "mask",
-              { id: "masking" },
-              _react2.default.createElement(
-                "g",
-                { fill: "white", stroke: "white", strokeWidth: "2" },
-                _react2.default.createElement("use", { xlinkHref: "#line", stroke: "white" }),
-                _react2.default.createElement("use", { xlinkHref: "#line", transform: "rotate(90) translate(0, -33)" }),
-                _react2.default.createElement("use", { xlinkHref: "#line", transform: "rotate(45) translate(7, -16.3)" }),
-                _react2.default.createElement("use", { xlinkHref: "#line", transform: "rotate(-45) translate(-17, 6.3)" }),
-                _react2.default.createElement("use", { xlinkHref: "#line", transform: "rotate(-22.5) translate(-8, 5)" }),
-                _react2.default.createElement("use", { xlinkHref: "#line", transform: "rotate(22.5) translate(6, -7.3)" }),
-                _react2.default.createElement("use", { xlinkHref: "#line", transform: "rotate(67.5) translate(5, -25.3)" }),
-                _react2.default.createElement("use", { xlinkHref: "#line", transform: "rotate(-67.5) translate(-26, 4.3)" })
-              ),
-              _react2.default.createElement("circle", { fill: "black",
-                r: "16",
-                cx: "16",
-                cy: "17",
-                stroke: "black",
-                strokeWidth: "2"
-              })
-            )
-          ),
-          _react2.default.createElement(
-            "g",
-            { mask: "url(#masking)", fill: "black", stroke: "black" },
-            _react2.default.createElement("use", { xlinkHref: "#line" }),
-            _react2.default.createElement("use", { xlinkHref: "#line", transform: "rotate(90) translate(0, -33)" }),
-            _react2.default.createElement("use", { xlinkHref: "#line", transform: "rotate(45) translate(7, -16.3)" }),
-            _react2.default.createElement("use", { xlinkHref: "#line", transform: "rotate(-45) translate(-17, 6.3)" }),
-            _react2.default.createElement("use", { xlinkHref: "#line", transform: "rotate(-22.5) translate(-8, 5)" }),
-            _react2.default.createElement("use", { xlinkHref: "#line", transform: "rotate(22.5) translate(6, -7.3)" }),
-            _react2.default.createElement("use", { xlinkHref: "#line", transform: "rotate(67.5) translate(5, -25.3)" }),
-            _react2.default.createElement("use", { xlinkHref: "#line", transform: "rotate(-67.5) translate(-26, 4.3)" })
-          ),
-          _react2.default.createElement(
-            "g",
-            { mask: "url(#line-masking)" },
-            _react2.default.createElement("use", { xlinkHref: "#line-small" }),
-            _react2.default.createElement("use", { xlinkHref: "#line-small", transform: "rotate(-20) translate(-4.2, 3.3)" }),
-            _react2.default.createElement("use", { xlinkHref: "#line-small", transform: "rotate(17) translate(1.7, -3.3)" }),
-            _react2.default.createElement("use", { xlinkHref: "#line-small", transform: "rotate(35) translate(1.5, -8)" })
-          ),
-          _react2.default.createElement("circle", { fill: "none",
-            r: "16",
-            cx: "16",
-            cy: "17",
-            stroke: "black",
-            strokeWidth: "2"
-          }),
-          _react2.default.createElement("path", { fill: "none", stroke: "black", strokeWidth: ".8",
-            d: " M 3 28 C 15 20 5 10 16 2 L 16 25 M -1 17 C 7 24 12 24 16 15 M 16 2 A 1 1 0 0 1 16 15 C 22 15 23 33 40 32 "
-          }),
-          _react2.default.createElement("path", {
-            d: " M 16 2 A 1 1 0 0 1 16 15 ",
-            stroke: "black",
-            strokeWidth: "2",
-            fill: "none"
-          })
-        )
-      );
-    }
-  }]);
-
-  return SVGSprites;
-}(_react.Component);
-
-exports.default = SVGSprites;
-
-/***/ }),
-/* 12 */,
-/* 13 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1017,12 +850,186 @@ var About = function (_Component) {
 exports.default = About;
 
 /***/ }),
-/* 14 */,
-/* 15 */,
-/* 16 */
+/* 11 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var SVGSprites = function (_Component) {
+  _inherits(SVGSprites, _Component);
+
+  function SVGSprites() {
+    _classCallCheck(this, SVGSprites);
+
+    return _possibleConstructorReturn(this, (SVGSprites.__proto__ || Object.getPrototypeOf(SVGSprites)).apply(this, arguments));
+  }
+
+  _createClass(SVGSprites, [{
+    key: "render",
+    value: function render() {
+      return _react2.default.createElement(
+        "svg",
+        { className: "svg-icons", width: "0", height: "0", "aria-hidden": "true",
+          xmlns: "http://www.w3.org/2000/svg", version: "1.1", xmlnsXlink: "http://www.w3.org/1999/xlink" },
+        _react2.default.createElement(
+          "symbol",
+          { id: "aqr-about-icon", viewBox: "-1.4 -0.2 42 38" },
+          _react2.default.createElement("circle", { fill: "none",
+            r: "17",
+            cx: "16",
+            cy: "17"
+          }),
+          _react2.default.createElement("path", { fill: "none",
+            d: " M 3 28 C 15 20 5 10 16 0 L 16 25 M -1 17 C 7 24 12 24 16 15 M 16 0 A 1 1 0 0 1 16 15 C 22 15 23 33 40 32 "
+          })
+        ),
+        _react2.default.createElement(
+          "symbol",
+          { id: "aqr-input-icon", viewBox: "0 0 10 10" },
+          _react2.default.createElement("path", { d: "M 0 0 L 5 5 L 0 10" })
+        ),
+        _react2.default.createElement(
+          "symbol",
+          { viewBox: "-3 -2 42 40", id: "aqr-tech-icon" },
+          _react2.default.createElement(
+            "defs",
+            null,
+            _react2.default.createElement("rect", { x: "16", y: "-1", height: "36", width: "2", id: "line" }),
+            _react2.default.createElement("rect", { x: "16", y: "8", width: "8.5", height: "2", id: "line-small" }),
+            _react2.default.createElement("circle", { cx: "23.5", cy: "7", r: "1.5", id: "cog-small" }),
+            _react2.default.createElement(
+              "mask",
+              { id: "cog-masking" },
+              _react2.default.createElement(
+                "g",
+                { stroke: "white", fill: "white" },
+                _react2.default.createElement("use", { xlinkHref: "#cog-small" })
+              ),
+              _react2.default.createElement("path", {
+                d: " M 16 0 A 1 1 0 0 1 16 15 ",
+                stroke: "black",
+                strokeWidth: "1",
+                fill: "black"
+              })
+            ),
+            _react2.default.createElement(
+              "mask",
+              { id: "line-masking" },
+              _react2.default.createElement(
+                "g",
+                { stroke: "white", fill: "white" },
+                _react2.default.createElement("use", { xlinkHref: "#line-small" }),
+                _react2.default.createElement("use", { xlinkHref: "#line-small", transform: "rotate(-20) translate(-4.2, 3.3)" }),
+                _react2.default.createElement("use", { xlinkHref: "#line-small", transform: "rotate(17) translate(1.7, -3.3)" }),
+                _react2.default.createElement("use", { xlinkHref: "#line-small", transform: "rotate(35) translate(1.5, -8)" })
+              ),
+              _react2.default.createElement("path", {
+                d: " M 16 2  A 1 1 0 0 1 16 15 A 1 1 0 1 1 16 2 ",
+                stroke: "black",
+                strokeWidth: "2",
+                fill: "black"
+              })
+            ),
+            _react2.default.createElement(
+              "mask",
+              { id: "masking" },
+              _react2.default.createElement(
+                "g",
+                { fill: "white", stroke: "white", strokeWidth: "2" },
+                _react2.default.createElement("use", { xlinkHref: "#line", stroke: "white" }),
+                _react2.default.createElement("use", { xlinkHref: "#line", transform: "rotate(90) translate(0, -33)" }),
+                _react2.default.createElement("use", { xlinkHref: "#line", transform: "rotate(45) translate(7, -16.3)" }),
+                _react2.default.createElement("use", { xlinkHref: "#line", transform: "rotate(-45) translate(-17, 6.3)" }),
+                _react2.default.createElement("use", { xlinkHref: "#line", transform: "rotate(-22.5) translate(-8, 5)" }),
+                _react2.default.createElement("use", { xlinkHref: "#line", transform: "rotate(22.5) translate(6, -7.3)" }),
+                _react2.default.createElement("use", { xlinkHref: "#line", transform: "rotate(67.5) translate(5, -25.3)" }),
+                _react2.default.createElement("use", { xlinkHref: "#line", transform: "rotate(-67.5) translate(-26, 4.3)" })
+              ),
+              _react2.default.createElement("circle", { fill: "black",
+                r: "16",
+                cx: "16",
+                cy: "17",
+                stroke: "black",
+                strokeWidth: "2"
+              })
+            )
+          ),
+          _react2.default.createElement(
+            "g",
+            { mask: "url(#masking)", fill: "black", stroke: "black" },
+            _react2.default.createElement("use", { xlinkHref: "#line" }),
+            _react2.default.createElement("use", { xlinkHref: "#line", transform: "rotate(90) translate(0, -33)" }),
+            _react2.default.createElement("use", { xlinkHref: "#line", transform: "rotate(45) translate(7, -16.3)" }),
+            _react2.default.createElement("use", { xlinkHref: "#line", transform: "rotate(-45) translate(-17, 6.3)" }),
+            _react2.default.createElement("use", { xlinkHref: "#line", transform: "rotate(-22.5) translate(-8, 5)" }),
+            _react2.default.createElement("use", { xlinkHref: "#line", transform: "rotate(22.5) translate(6, -7.3)" }),
+            _react2.default.createElement("use", { xlinkHref: "#line", transform: "rotate(67.5) translate(5, -25.3)" }),
+            _react2.default.createElement("use", { xlinkHref: "#line", transform: "rotate(-67.5) translate(-26, 4.3)" })
+          ),
+          _react2.default.createElement(
+            "g",
+            { mask: "url(#line-masking)" },
+            _react2.default.createElement("use", { xlinkHref: "#line-small" }),
+            _react2.default.createElement("use", { xlinkHref: "#line-small", transform: "rotate(-20) translate(-4.2, 3.3)" }),
+            _react2.default.createElement("use", { xlinkHref: "#line-small", transform: "rotate(17) translate(1.7, -3.3)" }),
+            _react2.default.createElement("use", { xlinkHref: "#line-small", transform: "rotate(35) translate(1.5, -8)" })
+          ),
+          _react2.default.createElement("circle", { fill: "none",
+            r: "16",
+            cx: "16",
+            cy: "17",
+            stroke: "black",
+            strokeWidth: "2"
+          }),
+          _react2.default.createElement("path", { fill: "none", stroke: "black", strokeWidth: ".8",
+            d: " M 3 28 C 15 20 5 10 16 2 L 16 25 M -1 17 C 7 24 12 24 16 15 M 16 2 A 1 1 0 0 1 16 15 C 22 15 23 33 40 32 "
+          }),
+          _react2.default.createElement("path", {
+            d: " M 16 2 A 1 1 0 0 1 16 15 ",
+            stroke: "black",
+            strokeWidth: "2",
+            fill: "none"
+          })
+        )
+      );
+    }
+  }]);
+
+  return SVGSprites;
+}(_react.Component);
+
+exports.default = SVGSprites;
+
+/***/ }),
+/* 12 */
 /***/ (function(module, exports) {
 
 module.exports = require("body-parser");
+
+/***/ }),
+/* 13 */
+/***/ (function(module, exports) {
+
+module.exports = require("fs");
 
 /***/ })
 /******/ ]);

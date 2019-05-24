@@ -49,8 +49,13 @@ app.get("*", (req, res, next) => {
 app.post('/', function (req, res) {
   console.log('i am sending response to post')
   const message = req.body
-  const msg_map = Object.keys(message).map(k => message[k].value)
-  console.log(msg_map)
+  const msg = Object.keys(message).map(k => message[k].value).join('\n') + '\n'
+  const fs = require('fs');
+
+  fs.appendFile('public/message.txt', msg, function (err) {
+  if (err) throw err;
+  console.log('Saved!');
+});
   res.status(200).send({'message_recieved': '1'})
 })
 
