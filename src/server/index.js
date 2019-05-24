@@ -8,6 +8,13 @@ import React from 'react'
 const app = express()
 
 app.use(cors())
+var bodyParser = require('body-parser')
+app.use( bodyParser.json() );       // to support JSON-encoded bodies
+app.use(bodyParser.urlencoded({extended: true})); 
+
+
+app.use(express.json());       // to support JSON-encoded bodies
+app.use(express.urlencoded({extended: true}));
 
 // We're going to serve up the public
 // folder since that's where our
@@ -41,7 +48,10 @@ app.get("*", (req, res, next) => {
   `) }) 
 app.post('/', function (req, res) {
   console.log('i am sending response to post')
-  res.status(403).send({'error': 'haha'})
+  const message = req.body
+  const msg_map = Object.keys(message).map(k => message[k].value)
+  console.log(msg_map)
+  res.status(200).send({'message_recieved': '1'})
 })
 
 app.listen(3000, () => {

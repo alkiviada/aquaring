@@ -87,6 +87,7 @@ class About extends Component {
     console.log('from render with') 
     console.log(this.state.error)
     const error = this.state.error.status
+    const messageSent = this.state.messageSent
     console.log(error)
     return (
          <section className="aqr-about">
@@ -103,7 +104,9 @@ class About extends Component {
 
          AquaRing Energy is a startup based in Bellevue, Washington. We are focused on renewable energy and energy storage technology, and providing power to communities worldwide.
          </p>
-         { error ? '' :
+         { error ? '' : 
+           messageSent ? 
+           <p><em>Thank you for getting in touch with us</em></p> :
          <p>
 We would like you to share in our journey to provide safe, reliable, renewable energy to the world. Please use the form below to let us know you would like to receive our newsletter, or to otherwise get in touch with us. Thank you!
          </p>
@@ -113,15 +116,9 @@ We would like you to share in our journey to provide safe, reliable, renewable e
          <em>
           An error has occurred, while sending your message. 
           Shall you try again?
-         </em></div> : 
-         error == 403 error == 401 ? 
-         <div className="aqr-alert">
-         <em>
-          An error has occurred, while sending your message.
-          Maybe there will be better luck next time.
          </em></div> : '' 
          }
-         { error == 403 || error == 401 || messageSent ? '' :
+         { messageSent ? '' :
          <form className="aqr-form">
            <div className="aqr-input-wrapper">
            <label className={this.state.username.label_cn} htmlFor="username" ref={this.userNameLabelRef} >Name</label>
