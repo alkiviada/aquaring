@@ -124,6 +124,10 @@ app.get("*", function (req, res, next) {
   console.log('haha');
   res.send("\n    <!DOCTYPE html>\n    <html lang=\"en-US\">\n      <head>\n        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n        <title>AquaRingEnergy</title>\n        <link href=\"//fonts.googleapis.com/css?family=Harmattan|Julius+Sans+One|Pathway+Gothic+One\" rel=\"stylesheet\" type=\"text/css\">\n        <link rel=\"stylesheet\" href=\"/main.css\">\n        <script src=\"/bundle.js\" defer></script>\n      </head>\n\n      <body>\n        <div id=\"app\" class=\"aqr-container\">" + markup + "</div>\n      </body>\n    </html>\n  ");
 });
+app.post('/', function (req, res) {
+  console.log('i am sending response to post');
+  res.status(403).send({ 'error': 'haha' });
+});
 
 app.listen(3000, function () {
   console.log("Server is listening on port: 3000");
@@ -469,7 +473,7 @@ var Logo = function (_Component) {
     value: function render() {
       return _react2.default.createElement(
         "svg",
-        { viewBox: "-1.4 -0.8 35.8 36", height: "100%", width: "100%",
+        { viewBox: "-1.4 -0.8 35.8 39", height: "100%", width: "100%",
           xmlns: "http://www.w3.org/2000/svg", version: "1.1", xmlnsXlink: "http://www.w3.org/1999/xlink", className: "aqr-logo", "aria-hidden": "true" },
         _react2.default.createElement(
           "defs",
@@ -480,8 +484,8 @@ var Logo = function (_Component) {
             _react2.default.createElement("circle", { fill: "yellow",
               r: "5",
               cx: "23",
-              cy: "10"
-            }),
+              cy: "10" }),
+            " ",
             _react2.default.createElement("path", {
               d: " M 10 30 C 42 20, 17 -5, 2 10  M 2 10  C 15 0, 30 20, 10 30 ",
               fill: "black",
@@ -535,7 +539,7 @@ var Logo = function (_Component) {
           { className: "wave" },
           _react2.default.createElement(
             "a",
-            { href: "/", className: "aqr-logo-link" },
+            { href: "/", className: "active aqr-logo-link" },
             _react2.default.createElement("circle", { className: "aqr-logo-bg",
               r: "17",
               cx: "16",
@@ -663,7 +667,7 @@ var SVGSprites = function (_Component) {
               _react2.default.createElement("path", {
                 d: " M 16 0 A 1 1 0 0 1 16 15 ",
                 stroke: "black",
-                "stroke-width": "1",
+                strokeWidth: "1",
                 fill: "black"
               })
             ),
@@ -758,169 +762,10 @@ exports.default = SVGSprites;
 /***/ }),
 /* 12 */,
 /* 13 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
 "use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var About = function (_Component) {
-  _inherits(About, _Component);
-
-  function About(props) {
-    _classCallCheck(this, About);
-
-    var _this = _possibleConstructorReturn(this, (About.__proto__ || Object.getPrototypeOf(About)).call(this, props));
-
-    _this.userNameLabelRef = _react2.default.createRef();
-    _this.emailLabelRef = _react2.default.createRef();
-    _this.messageLabelRef = _react2.default.createRef();
-    _this.state = { username: { 'value': '', 'label_cn': 'floating-label' },
-      email: { 'value': '', 'label_cn': 'floating-label' },
-      message: { 'value': '', 'label_cn': 'floating-label' }
-    };
-    _this.inputOrLabel = _this.inputOrLabel.bind(_this);
-    _this.hideLabel = _this.hideLabel.bind(_this);
-    _this.showLabel = _this.showLabel.bind(_this);
-    _this.handleValueChange = _this.handleValueChange.bind(_this);
-    return _this;
-  }
-
-  _createClass(About, [{
-    key: 'handleValueChange',
-    value: function handleValueChange(e) {
-      var key = e.target.id;
-      console.log(this.state);
-      console.log(key);
-      this.setState(_defineProperty({}, key, { 'label_cn': this.state[key]['label_cn'], 'value': e.target.value }));
-    }
-  }, {
-    key: 'hideLabel',
-    value: function hideLabel(e, labelRef) {
-      var key = labelRef.current.htmlFor;
-      this.setState(_defineProperty({}, key, { 'value': e.target.value, 'label_cn': 'floating-label top-label' }));
-    }
-  }, {
-    key: 'showLabel',
-    value: function showLabel(e, labelRef) {
-      var key = labelRef.current.htmlFor;
-      this.setState(_defineProperty({}, key, { 'value': e.target.value, 'label_cn': 'floating-label' }));
-    }
-  }, {
-    key: 'inputOrLabel',
-    value: function inputOrLabel(e, labelRef) {
-      if (e.target.value == "") {
-        this.showLabel(e, labelRef);
-      } else if (e.target.value != "") {
-        this.hideLabel(e, labelRef);
-      }
-    }
-  }, {
-    key: 'render',
-    value: function render() {
-      var _this2 = this;
-
-      return _react2.default.createElement(
-        'section',
-        { className: 'aqr-about' },
-        _react2.default.createElement(
-          'div',
-          { className: 'aqr-section-head-wrapper' },
-          _react2.default.createElement(
-            'svg',
-            { className: 'aqr-heading-icon', 'aria-hidden': 'true' },
-            _react2.default.createElement('use', { xlinkHref: '#aqr-about-icon' })
-          ),
-          _react2.default.createElement(
-            'h3',
-            { className: 'aqr-section-heading' },
-            'About Us'
-          )
-        ),
-        _react2.default.createElement(
-          'p',
-          null,
-          'Welcome! AquaRing Energy is a startup based in Bellevue, Washington. We are focused on renewable energy and energy storage technology, and providing power to communities worldwide. We would like you to share in our journey to provide safe, reliable, renewable energy to the world. Please use the form below to let us know you would like to receive our newsletter, or to otherwise get in touch with us. Thank you!'
-        ),
-        _react2.default.createElement(
-          'form',
-          { className: 'aqr-form' },
-          _react2.default.createElement(
-            'div',
-            { className: 'aqr-input-wrapper' },
-            _react2.default.createElement(
-              'label',
-              { className: this.state.username.label_cn, htmlFor: 'username', ref: this.userNameLabelRef },
-              'Name'
-            ),
-            _react2.default.createElement('input', { className: 'aqr-input', onFocus: function onFocus(e) {
-                return _this2.hideLabel(e, _this2.userNameLabelRef);
-              }, onInput: function onInput(e) {
-                return _this2.inputOrLabel(e, _this2.userNameLabelRef);
-              }, onBlur: function onBlur(e) {
-                return _this2.inputOrLabel(e, _this2.userNameLabelRef);
-              }, type: 'text', value: this.state.username.value, id: 'username', name: 'username', onChange: this.handleValueChange })
-          ),
-          _react2.default.createElement(
-            'div',
-            { className: 'aqr-input-wrapper' },
-            _react2.default.createElement(
-              'label',
-              { className: this.state.email.label_cn, htmlFor: 'email', ref: this.emailLabelRef },
-              'Email'
-            ),
-            _react2.default.createElement('input', { className: 'aqr-input', onFocus: function onFocus(e) {
-                return _this2.hideLabel(e, _this2.emailLabelRef);
-              }, onInput: function onInput(e) {
-                return _this2.inputOrLabel(e, _this2.emailLabelRef);
-              }, onBlur: function onBlur(e) {
-                return _this2.inputOrLabel(e, _this2.emailLabelRef);
-              }, type: 'email', value: this.state.email.value, id: 'email', name: 'email', onChange: this.handleValueChange })
-          ),
-          _react2.default.createElement(
-            'div',
-            { className: 'aqr-input-wrapper' },
-            _react2.default.createElement(
-              'label',
-              { className: this.state.message.label_cn, htmlFor: 'message', ref: this.messageLabelRef },
-              'What you have to say'
-            ),
-            _react2.default.createElement('textarea', { className: 'aqr-input-textarea', onFocus: function onFocus(e) {
-                return _this2.hideLabel(e, _this2.messageLabelRef);
-              }, onInput: function onInput(e) {
-                return _this2.inputOrLabel(e, _this2.messageLabelRef);
-              }, onBlur: function onBlur(e) {
-                return _this2.inputOrLabel(e, _this2.messageLabelRef);
-              }, type: 'message', value: this.state.message.value, id: 'message', name: 'message', onChange: this.handleValueChange })
-          )
-        )
-      );
-    }
-  }]);
-
-  return About;
-}(_react.Component);
-
-exports.default = About;
+throw new Error("Module build failed: SyntaxError: Unexpected token, expected } (117:22)\n\n\u001b[0m \u001b[90m 115 | \u001b[39m          \u001b[33mShall\u001b[39m you \u001b[36mtry\u001b[39m again\u001b[33m?\u001b[39m\n \u001b[90m 116 | \u001b[39m         \u001b[33m<\u001b[39m\u001b[33m/\u001b[39m\u001b[33mem\u001b[39m\u001b[33m>\u001b[39m\u001b[33m<\u001b[39m\u001b[33m/\u001b[39m\u001b[33mdiv\u001b[39m\u001b[33m>\u001b[39m \u001b[33m:\u001b[39m \n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 117 | \u001b[39m         error \u001b[33m==\u001b[39m \u001b[35m403\u001b[39m error \u001b[33m==\u001b[39m \u001b[35m401\u001b[39m \u001b[33m?\u001b[39m \n \u001b[90m     | \u001b[39m                      \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 118 | \u001b[39m         \u001b[33m<\u001b[39m\u001b[33mdiv\u001b[39m className\u001b[33m=\u001b[39m\u001b[32m\"aqr-alert\"\u001b[39m\u001b[33m>\u001b[39m\n \u001b[90m 119 | \u001b[39m         \u001b[33m<\u001b[39m\u001b[33mem\u001b[39m\u001b[33m>\u001b[39m\n \u001b[90m 120 | \u001b[39m          \u001b[33mAn\u001b[39m error has occurred\u001b[33m,\u001b[39m \u001b[36mwhile\u001b[39m sending your message\u001b[33m.\u001b[39m\u001b[0m\n");
 
 /***/ })
 /******/ ]);

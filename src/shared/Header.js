@@ -8,10 +8,10 @@ class Header extends Component {
     return (
       <header role="banner" className={this.props.headerCn}>
        <a href="/" tabIndex="-1">
-        <Logo />
-        <span className="visually-hidden">
-        Aquaring Main Page 
-       </span>
+         <Logo />
+         <span className="visually-hidden">
+           Aquaring Main Page 
+         </span>
        </a>
        <nav role="navigation" area-label="AquaringEnergy Menu" className="aqr-top-nav">
        <ul className="aqr-top-nav-list">

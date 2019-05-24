@@ -38,7 +38,10 @@ app.get("*", (req, res, next) => {
         <div id="app" class="aqr-container">${markup}</div>
       </body>
     </html>
-  `)
+  `) }) 
+app.post('/', function (req, res) {
+  console.log('i am sending response to post')
+  res.status(403).send({'error': 'haha'})
 })
 
 app.listen(3000, () => {

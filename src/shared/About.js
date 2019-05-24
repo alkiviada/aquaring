@@ -6,20 +6,61 @@ class About extends Component {
     this.userNameLabelRef = React.createRef()
     this.emailLabelRef = React.createRef()
     this.messageLabelRef = React.createRef()
-    this.state = { username: { 'value': '', 'label_cn': 'floating-label' },
+    this.state = { error: '', 
+                   messageSent: '',
+                   username: { 'value': '', 'label_cn': 'floating-label' },
                    email: {'value': '', 'label_cn': 'floating-label' }, 
                    message: {'value': '', 'label_cn': 'floating-label' }, 
                  }
     this.inputOrLabel = this.inputOrLabel.bind(this) 
     this.hideLabel = this.hideLabel.bind(this) 
     this.showLabel = this.showLabel.bind(this) 
+    this.sendMessage = this.sendMessage.bind(this) 
     this.handleValueChange = this.handleValueChange.bind(this) 
+  }
+
+  sendMessage(e) {
+    e.preventDefault()
+    if (this.state.message.value) {
+      console.log('i will send')
+    const { email, username, message } = this.state
+    let headers = {"Content-Type": "application/json"};
+    let body = JSON.stringify({username, email, message});
+
+    return fetch("/", {headers, body, method: "POST"})
+      .then(res => {
+        if (res.status < 500) {
+          return res.json().then(data => {
+            return {status: res.status, data};
+          })
+        } else {
+          console.log("Server Error!");
+          throw res;
+        }
+      })
+      .then(res => {
+        if (res.status === 200) {
+          this.setState({messageSent: 1})
+          return res.data;
+        } else if (res.status === 403 || res.status === 401) {
+          throw res;
+        } else {
+          throw res.data;
+        }
+      }).catch((err) => {
+        this.setState({error: err})
+        return err;
+      });
+      
+    }
+    else {
+      console.log('i will not send')
+    }
+    
   }
 
   handleValueChange(e) {
     const key = e.target.id 
-    console.log(this.state)
-    console.log(key) 
     this.setState({ [key]: { 'label_cn': this.state[key]['label_cn'], 'value': e.target.value } });
   }
   
@@ -43,6 +84,10 @@ class About extends Component {
   }
 
   render() {
+    console.log('from render with') 
+    console.log(this.state.error)
+    const error = this.state.error.status
+    console.log(error)
     return (
          <section className="aqr-about">
          <div className="aqr-section-head-wrapper">
@@ -57,8 +102,26 @@ class About extends Component {
          Welcome!
 
          AquaRing Energy is a startup based in Bellevue, Washington. We are focused on renewable energy and energy storage technology, and providing power to communities worldwide.
+         </p>
+         { error ? '' :
+         <p>
 We would like you to share in our journey to provide safe, reliable, renewable energy to the world. Please use the form below to let us know you would like to receive our newsletter, or to otherwise get in touch with us. Thank you!
          </p>
+         }
+         { error == 500 ?
+         <div className="aqr-alert">
+         <em>
+          An error has occurred, while sending your message. 
+          Shall you try again?
+         </em></div> : 
+         error == 403 error == 401 ? 
+         <div className="aqr-alert">
+         <em>
+          An error has occurred, while sending your message.
+          Maybe there will be better luck next time.
+         </em></div> : '' 
+         }
+         { error == 403 || error == 401 || messageSent ? '' :
          <form className="aqr-form">
            <div className="aqr-input-wrapper">
            <label className={this.state.username.label_cn} htmlFor="username" ref={this.userNameLabelRef} >Name</label>
@@ -72,7 +135,11 @@ We would like you to share in our journey to provide safe, reliable, renewable e
            <label className={this.state.message.label_cn} htmlFor="message" ref={this.messageLabelRef}>What you have to say</label>
            <textarea className="aqr-input-textarea" onFocus={(e) => this.hideLabel(e, this.messageLabelRef)} onInput={(e) => this.inputOrLabel(e, this.messageLabelRef)} onBlur={(e) => this.inputOrLabel(e, this.messageLabelRef)} type="message" value={this.state.message.value} id="message" name="message" onChange={this.handleValueChange} />
          </div>
+           <div className="aqr-input-wrapper">
+            <button type="button" className="aqr-send-button" onClick={this.sendMessage}>Send</button>
+           </div>
          </form>
+         }
          </section>
     )
   }

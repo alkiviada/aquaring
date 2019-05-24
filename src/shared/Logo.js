@@ -3,16 +3,14 @@ import React, { Component } from 'react'
 class Logo extends Component {
   render() {
     return (
-<svg viewBox="-1.4 -0.8 35.8 36" height="100%" width="100%"
+<svg viewBox="-1.4 -0.8 35.8 39" height="100%" width="100%"
      xmlns="http://www.w3.org/2000/svg" version="1.1" xmlnsXlink="http://www.w3.org/1999/xlink" className="aqr-logo" aria-hidden="true" >
 <defs>
 <mask id="sun-masking" >
       <circle fill="yellow" 
          r="5"
 	 cx="23"
-	 cy="10"
-	 />
-<path 
+	 cy="10" /> <path 
        d="
          M 10 30
          C 42 20, 17 -5, 2 10 
@@ -77,7 +75,7 @@ class Logo extends Component {
     </linearGradient>
 </defs>
 <g className="wave">
-<a href="/" className="aqr-logo-link" >
+<a href="/" className="active aqr-logo-link" >
       <circle className="aqr-logo-bg" 
          r="17"
 	 cx="16"

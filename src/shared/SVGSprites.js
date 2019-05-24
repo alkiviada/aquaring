@@ -42,7 +42,7 @@ class SVGSprites extends Component {
          A 1 1 0 0 1 16 15
          "
          stroke="black"
-         stroke-width="1"
+         strokeWidth="1"
          fill="black"
         />
 </mask> 
