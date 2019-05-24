@@ -133,7 +133,7 @@ class SVGSprites extends Component {
 
 </symbol>
 <symbol id="aqr-news-icon" viewBox="-1 -8 40 40" >
-<rect x="0" y="-6" width="36" height="40" stroke-width="1" rx="3" stroke="black" fill="none" />
+<rect x="0" y="-6" width="36" height="40" strokeWidth="1" rx="3" stroke="black" fill="none" />
 <text x="3" y="5" className="aqr-news-caps">a</text>
 <path  className="aqr-news-waves"
   d="
