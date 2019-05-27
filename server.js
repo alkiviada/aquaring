@@ -1218,9 +1218,11 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var memberBios = { 'phil': 'Phil is a Systems Architect with core strengths in technology, product vision, and execution. He has a successful track record developing key innovations in display, multimedia, gaming (Xbox), video, augmented reality (Hololens), servers, and wireless power.He has had multiple successes carrying projects from proposal through to product leveraging experience gained in both hardware and software architecture roles.' };
+var memberBios = { 'phil': 'Phil is a Systems Architect with core strengths in technology, product vision, and execution. He has a successful track record developing key innovations in display, multimedia, gaming (Xbox), video, augmented reality (Hololens), servers, and wireless power. He has had multiple successes carrying projects from proposal through to product leveraging experience gained in both hardware and software architecture roles.',
+  'lena': 'Elena analyzes the economic aspects of AquaRing Energy projects by modeling the company’s profitability under different engineering specifications and market conditions. She has a PhD in Economics from Rutgers, and has 10+ years’ background in Econometrics and research in migration and labor economics.' };
 
-var memberMoreBios = { 'phil': 'Phil has also executed projects that depended on successful inter-company and inter-organizational collaboration. He has been granted 38 separate U.S. patents. He is a recipient of three corporate recognition awards. Phil earned a Masters of Engineering from McGill University in association with the National Research Council of Canada’s Industrial Materials Institute.' };
+var memberMoreBios = { 'phil': 'Phil has also executed projects that depended on successful inter-company and inter-organizational collaboration. He has been granted 38 separate U.S. patents. He is a recipient of three corporate recognition awards. Phil earned a Masters of Engineering from McGill University in association with the National Research Council of Canada’s Industrial Materials Institute.',
+  'lena': 'Elena is involved in building partnerships and collaborations with universities, research centers and laboratories.' };
 
 var Team = function (_Component) {
   _inherits(Team, _Component);
@@ -1293,6 +1295,42 @@ var Team = function (_Component) {
                   "span",
                   { className: "visually-hidden" },
                   "about Phil Swan"
+                )
+              )
+            ),
+            _react2.default.createElement(
+              "div",
+              { className: "aqr-member" },
+              _react2.default.createElement(
+                "h3",
+                null,
+                "Elena Stolpovsky"
+              ),
+              _react2.default.createElement("img", { className: "aqr-member-headshot", title: "Elena Stolpovsky", alt: "a small portrait of Elena Stolpovsky", src: "/lena.jpg" }),
+              _react2.default.createElement(
+                "h4",
+                null,
+                "Energy Economist"
+              ),
+              _react2.default.createElement(
+                "p",
+                null,
+                memberBios['lena']
+              ),
+              this.state.memberShow['lena'] ? _react2.default.createElement(
+                "p",
+                null,
+                memberMoreBios['lena']
+              ) : _react2.default.createElement(
+                "button",
+                { className: "aqr-read-button", onClick: function onClick(e) {
+                    return _this2.memberShowMore(e, 'lena');
+                  } },
+                "Read More ",
+                _react2.default.createElement(
+                  "span",
+                  { className: "visually-hidden" },
+                  "about Elena Stolpovsky"
                 )
               )
             )

@@ -147,7 +147,6 @@ label {
 
 .aqr-send-button:focus {
   outline: none;
-  border-radius: 5px;
   border: 1px solid black;
 }
 
@@ -321,7 +320,7 @@ main.team {
 }
 
 .aqr-team-members {
-  margin-top: 2em;
+  margin-top: 1em;
   grid-area: team;
 }
  
@@ -354,7 +353,7 @@ main {
 .aqr-logo {
   position: absolute;
   top: .5em;
-  left: .5em;
+  left: 1em;
   width: 10%;
   height: auto;
 }
@@ -362,7 +361,7 @@ main {
 .aqr-header-sticky .aqr-logo {
   width: 2.5em;
   top: .2em;
-  left: .2em;
+  left: 1em;
 }
 
 .aqr-logo-link {
@@ -533,6 +532,9 @@ header {
 
 }
 
+.aqr-member {
+  margin-top: 2em;
+}
 
 .aqr-read-button {
   background-color: rgba(var(--sun-text-color), 1);
@@ -542,10 +544,11 @@ header {
   font-size: 1rem;
   text-decoration: none;
   padding: .1em .5em;
-  box-shadow: 0 3px 0 var(--sun-stroke-color);
   margin-top: .2em;
   width: 5em;
   height: 2em;
+  border-radius: 5px;
+  cursor: pointer; 
 }
 
 .aqr-read-button:hover {
