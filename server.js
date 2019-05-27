@@ -436,13 +436,21 @@ var Header = function (_Component) {
       var location = this.props.location;
 
       console.log(location);
+      var navLnks = ['/', '/team', '/join'];
+      var active = navLnks.find(function (l) {
+        return l == location.pathname;
+      });
+      var navLnksCnames = navLnks.reduce(function (o, l) {
+        return o[l] = active == l ? 'aqr-top-nav-link active' : 'aqr-top-nav-link', o;
+      }, {});
+
       return _react2.default.createElement(
         "header",
         { role: "banner", className: this.props.headerCn },
         _react2.default.createElement(
           "a",
           { href: "/", tabIndex: "-1" },
-          _react2.default.createElement(_Logo2.default, null),
+          _react2.default.createElement(_Logo2.default, { active: active == '/' ? 1 : 0 }),
           _react2.default.createElement(
             "span",
             { className: "visually-hidden" },
@@ -460,7 +468,7 @@ var Header = function (_Component) {
               { className: "aqr-top-nav-li" },
               _react2.default.createElement(
                 "a",
-                { className: "aqr-top-nav-link", href: "/team", "area-label": "Our Team" },
+                { className: navLnksCnames['/team'], href: "/team", "area-label": "Our Team" },
                 "Our Team"
               )
             ),
@@ -469,7 +477,7 @@ var Header = function (_Component) {
               { className: "aqr-top-nav-li" },
               _react2.default.createElement(
                 "a",
-                { className: "aqr-top-nav-link", href: "/br", "area-label": "Join Us" },
+                { className: navLnksCnames['/join'], href: "/join", "area-label": "Join Us" },
                 "Join Us"
               )
             )
@@ -521,6 +529,8 @@ var Logo = function (_Component) {
   _createClass(Logo, [{
     key: "render",
     value: function render() {
+      var mainLnkCn = this.props.mainLnkCn;
+
       return _react2.default.createElement(
         "svg",
         { viewBox: "-1.4 -0.8 35.8 39", height: "100%", width: "100%",
@@ -600,7 +610,7 @@ var Logo = function (_Component) {
           _react2.default.createElement("use", { xlinkHref: "#aquaring-path-3", className: "waves", clipPath: "url(#myClip)" }),
           _react2.default.createElement(
             "text",
-            { className: "aqr-logo-water-text", textAnchor: "start", x: "13" },
+            { className: "aqr-logo-water-text", textAnchor: "start", x: "13", textLength: "27" },
             _react2.default.createElement(
               "textPath",
               { xlinkHref: "#aquaring-path-1" },
@@ -621,7 +631,7 @@ var Logo = function (_Component) {
           }),
           _react2.default.createElement(
             "text",
-            { className: "aqr-logo-sun-text" },
+            { className: "aqr-logo-sun-text", textLength: "17" },
             _react2.default.createElement(
               "textPath",
               { xlinkHref: "#energy-path" },

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 
 class Logo extends Component {
   render() {
+    const { mainLnkCn } = this.props
     return (
 <svg viewBox="-1.4 -0.8 35.8 39" height="100%" width="100%"
      xmlns="http://www.w3.org/2000/svg" version="1.1" xmlnsXlink="http://www.w3.org/1999/xlink" className="aqr-logo" aria-hidden="true" >
@@ -85,7 +86,7 @@ class Logo extends Component {
 
        <use xlinkHref="#aquaring-path-2" fill="url(#waveGradient)"/>
        <use xlinkHref="#aquaring-path-3" className="waves" clipPath="url(#myClip)"/>
-      <text className="aqr-logo-water-text" textAnchor="start" x="13">
+      <text className="aqr-logo-water-text" textAnchor="start" x="13" textLength="27">
     <textPath xlinkHref="#aquaring-path-1">
     aquaring
     </textPath>
@@ -107,7 +108,7 @@ class Logo extends Component {
 	 cy="6"
          mask="url(#sun-masking)"
 	 />
-      <text className="aqr-logo-sun-text">
+      <text className="aqr-logo-sun-text" textLength="17">
     <textPath xlinkHref="#energy-path">
     energy
     </textPath>
