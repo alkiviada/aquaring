@@ -11,7 +11,7 @@ class Home extends Component {
         <Fragment>
         <SVGSprites />
         <Header headerCn={this.props.headerCn}/>
-        <main role="main">
+        <main className="home" role="main">
           <MainTitle />
           <About />
           <section className="aqr-tech">

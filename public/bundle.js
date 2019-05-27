@@ -15220,7 +15220,7 @@ var Home = function (_Component) {
         _react2.default.createElement(_Header2.default, { headerCn: this.props.headerCn }),
         _react2.default.createElement(
           "main",
-          { role: "main" },
+          { className: "home", role: "main" },
           _react2.default.createElement(_MainTitle2.default, null),
           _react2.default.createElement(_About2.default, null),
           _react2.default.createElement(
@@ -15342,16 +15342,16 @@ var Header = function (_Component) {
       return _react2.default.createElement(
         "header",
         { role: "banner", className: this.props.headerCn },
-        _react2.default.createElement(
+        active != '/' ? _react2.default.createElement(
           "a",
           { href: "/", tabIndex: "-1" },
-          _react2.default.createElement(_Logo2.default, { active: active == '/' ? 1 : 0 }),
+          _react2.default.createElement(_Logo2.default, { notMain: 1 }),
           _react2.default.createElement(
             "span",
             { className: "visually-hidden" },
             "Aquaring Main Page"
           )
-        ),
+        ) : _react2.default.createElement(_Logo2.default, null),
         _react2.default.createElement(
           "nav",
           { role: "navigation", "area-label": "AquaringEnergy Menu", className: "aqr-top-nav" },
@@ -15361,7 +15361,11 @@ var Header = function (_Component) {
             _react2.default.createElement(
               "li",
               { className: "aqr-top-nav-li" },
-              _react2.default.createElement(
+              active == '/team' ? _react2.default.createElement(
+                "strong",
+                null,
+                "Our Team"
+              ) : _react2.default.createElement(
                 "a",
                 { className: navLnksCnames['/team'], href: "/team", "area-label": "Our Team" },
                 "Our Team"
@@ -15424,7 +15428,9 @@ var Logo = function (_Component) {
   _createClass(Logo, [{
     key: "render",
     value: function render() {
-      var mainLnkCn = this.props.mainLnkCn;
+      console.log(this.props);
+      var _ = 1,
+          notMain = _.notMain;
 
       return _react2.default.createElement(
         "svg",
@@ -15492,15 +15498,19 @@ var Logo = function (_Component) {
         _react2.default.createElement(
           "g",
           { className: "wave" },
-          _react2.default.createElement(
+          notMain == 1 ? _react2.default.createElement(
             "a",
-            { href: "/", className: "active aqr-logo-link" },
+            { href: "/", className: "aqr-logo-link" },
             _react2.default.createElement("circle", { className: "aqr-logo-bg",
               r: "17",
               cx: "16",
               cy: "17"
             })
-          ),
+          ) : _react2.default.createElement("circle", { className: "aqr-logo-bg",
+            r: "17",
+            cx: "16",
+            cy: "17"
+          }),
           _react2.default.createElement("use", { xlinkHref: "#aquaring-path-2", fill: "url(#waveGradient)" }),
           _react2.default.createElement("use", { xlinkHref: "#aquaring-path-3", className: "waves", clipPath: "url(#myClip)" }),
           _react2.default.createElement(
@@ -16061,6 +16071,8 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _react = __webpack_require__(0);
@@ -16081,24 +16093,43 @@ var _SVGSprites2 = _interopRequireDefault(_SVGSprites);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+var memberBios = { 'phil': 'Phil is a Systems Architect with core strengths in technology, product vision, and execution. He has a successful track record developing key innovations in display, multimedia, gaming (Xbox), video, augmented reality (Hololens), servers, and wireless power.He has had multiple successes carrying projects from proposal through to product leveraging experience gained in both hardware and software architecture roles.' };
+
+var memberMoreBios = { 'phil': 'Phil has also executed projects that depended on successful inter-company and inter-organizational collaboration. He has been granted 38 separate U.S. patents. He is a recipient of three corporate recognition awards. Phil earned a Masters of Engineering from McGill University in association with the National Research Council of Canada’s Industrial Materials Institute.' };
+
 var Team = function (_Component) {
   _inherits(Team, _Component);
 
-  function Team() {
+  function Team(props) {
     _classCallCheck(this, Team);
 
-    return _possibleConstructorReturn(this, (Team.__proto__ || Object.getPrototypeOf(Team)).apply(this, arguments));
+    var _this = _possibleConstructorReturn(this, (Team.__proto__ || Object.getPrototypeOf(Team)).call(this, props));
+
+    _this.state = {
+      memberShow: { 'phil': 0 }
+    };
+    _this.memberShowMore = _this.memberShowMore.bind(_this);
+    return _this;
   }
 
   _createClass(Team, [{
+    key: "memberShowMore",
+    value: function memberShowMore(e, member) {
+      e.preventDefault();
+      this.setState({ memberShow: _extends({}, this.state.memberShow, _defineProperty({}, member, 1)) });
+    }
+  }, {
     key: "render",
     value: function render() {
+      var _this2 = this;
 
       return _react2.default.createElement(
         _react.Fragment,
@@ -16107,8 +16138,48 @@ var Team = function (_Component) {
         _react2.default.createElement(_Header2.default, { headerCn: this.props.headerCn }),
         _react2.default.createElement(
           "main",
-          { role: "main" },
-          _react2.default.createElement(_MainTitle2.default, null)
+          { className: "team", role: "main" },
+          _react2.default.createElement(_MainTitle2.default, null),
+          _react2.default.createElement(
+            "section",
+            { className: "aqr-team-members" },
+            _react2.default.createElement(
+              "div",
+              { className: "aqr-member" },
+              _react2.default.createElement(
+                "h3",
+                null,
+                "Phil Swan"
+              ),
+              _react2.default.createElement("img", { className: "aqr-member-headshot", title: "Phil Swan", alt: "a small portrait of phil swan", src: "/phil.webp" }),
+              _react2.default.createElement(
+                "h4",
+                null,
+                "Founder"
+              ),
+              _react2.default.createElement(
+                "p",
+                null,
+                memberBios['phil']
+              ),
+              this.state.memberShow['phil'] ? _react2.default.createElement(
+                "p",
+                null,
+                memberMoreBios['phil']
+              ) : _react2.default.createElement(
+                "button",
+                { className: "aqr-read-button", onClick: function onClick(e) {
+                    return _this2.memberShowMore(e, 'phil');
+                  } },
+                "Read More ",
+                _react2.default.createElement(
+                  "span",
+                  { className: "visually-hidden" },
+                  "about Phil Swan"
+                )
+              )
+            )
+          )
         ),
         _react2.default.createElement("footer", { role: "contentinfo" })
       );

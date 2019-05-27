@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 
 class Logo extends Component {
   render() {
-    const { mainLnkCn } = this.props
+    console.log(this.props)
+    const { notMain } = 1
     return (
 <svg viewBox="-1.4 -0.8 35.8 39" height="100%" width="100%"
      xmlns="http://www.w3.org/2000/svg" version="1.1" xmlnsXlink="http://www.w3.org/1999/xlink" className="aqr-logo" aria-hidden="true" >
@@ -76,13 +77,20 @@ class Logo extends Component {
     </linearGradient>
 </defs>
 <g className="wave">
-<a href="/" className="active aqr-logo-link" >
+{ notMain == 1 ?
+<a href="/" className="aqr-logo-link">
       <circle className="aqr-logo-bg" 
          r="17"
 	 cx="16"
 	 cy="17"
 	 />
-</a>
+</a> :
+      <circle className="aqr-logo-bg" 
+         r="17"
+	 cx="16"
+	 cy="17"
+	 />
+}
 
        <use xlinkHref="#aquaring-path-2" fill="url(#waveGradient)"/>
        <use xlinkHref="#aquaring-path-3" className="waves" clipPath="url(#myClip)"/>

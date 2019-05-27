@@ -301,7 +301,7 @@ h2 {
  
 }
 
-main {
+main.home {
   grid-area: center;
   display: grid;
   grid-template-columns: .35fr 1fr .35fr;
@@ -311,6 +311,20 @@ main {
     ". tech ."
     ". news .";
 }
+main.team {
+  grid-area: center;
+  display: grid;
+  grid-template-columns: .35fr 1fr .35fr;
+  grid-template-rows: 16em 1fr;
+  grid-template-areas: "title title title"
+    ". team .";
+}
+
+.aqr-team-members {
+  margin-top: 2em;
+  grid-area: team;
+}
+ 
 
 @media(max-width: 1000px) {
 main {
@@ -328,6 +342,15 @@ main {
   grid-template-columns: .1fr 1fr .1fr;
 }
 }
+
+.aqr-member-headshot {
+  width: 125px;
+  height: auto;
+  float: left;
+  margin: .5em 1em .2em 0;
+  border-radius: 4px;
+}
+
 .aqr-logo {
   position: absolute;
   top: .5em;
@@ -508,6 +531,29 @@ header {
 .bg-grad-bottom {
   stop-color: rgba(var(--blue-wave-bottom), .8);
 
+}
+
+
+.aqr-read-button {
+  background-color: rgba(var(--sun-text-color), 1);
+  color: black;
+  font-family: var(--subtitle-font);
+  letter-spacing: -.5px;
+  font-size: 1rem;
+  text-decoration: none;
+  padding: .1em .5em;
+  box-shadow: 0 3px 0 var(--sun-stroke-color);
+  margin-top: .2em;
+  width: 5em;
+  height: 2em;
+}
+
+.aqr-read-button:hover {
+  transform: translateY(1px);
+}
+
+.aqr-read-button:active {
+  box-shadow: none;
 }
 
 .visually-hidden {

@@ -14,15 +14,19 @@ class Header extends Component {
 
     return (
       <header role="banner" className={this.props.headerCn}>
+       { active != '/' ? 
        <a href="/" tabIndex="-1">
-         <Logo active={active == '/' ? 1 : 0}/>
+         <Logo notMain={1}/>
          <span className="visually-hidden">
            Aquaring Main Page 
          </span>
-       </a>
+       </a> : <Logo />
+        }
        <nav role="navigation" area-label="AquaringEnergy Menu" className="aqr-top-nav">
        <ul className="aqr-top-nav-list">
-       <li className="aqr-top-nav-li"><a className={navLnksCnames['/team']} href="/team" area-label="Our Team">Our Team</a></li>
+       <li className="aqr-top-nav-li">
+       { active == '/team' ? <strong>Our Team</strong> : <a className={navLnksCnames['/team']} href="/team" area-label="Our Team">Our Team</a>}
+       </li>
        <li className="aqr-top-nav-li"><a className={navLnksCnames['/join']} href="/join" area-label="Join Us">Join Us</a></li>
        </ul>
        </nav>
