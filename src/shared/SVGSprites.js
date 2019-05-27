@@ -5,6 +5,46 @@ class SVGSprites extends Component {
     return (
 <svg className="svg-icons" width="0" height="0" aria-hidden="true"
      xmlns="http://www.w3.org/2000/svg" version="1.1" xmlnsXlink="http://www.w3.org/1999/xlink">
+<defs>
+<mask id="line-masking" >
+    <g stroke="white" fill="white">
+       <use xlinkHref="#line-small" />
+       <use xlinkHref="#line-small" transform="rotate(-20) translate(-4.2, 3.3)" />
+       <use xlinkHref="#line-small" transform="rotate(17) translate(1.7, -3.3)" />
+       <use xlinkHref="#line-small" transform="rotate(35) translate(1.5, -8)" />
+    </g>
+       <path 
+         d="
+         M 16 2 
+         A 1 1 0 0 1 16 15
+         A 1 1 0 1 1 16 2
+         "
+         stroke="black"
+         strokeWidth="2"
+         fill="black"
+        />
+</mask> 
+
+<mask id="masking" >
+       <g fill="white" stroke="white" strokeWidth="2">
+       <use xlinkHref="#line" stroke="white" />
+       <use xlinkHref="#line" transform="rotate(90) translate(0, -33)" />
+       <use xlinkHref="#line" transform="rotate(45) translate(7, -16.3)" />
+       <use xlinkHref="#line" transform="rotate(-45) translate(-17, 6.3)"   />
+       <use xlinkHref="#line" transform="rotate(-22.5) translate(-8, 5)" />
+       <use xlinkHref="#line" transform="rotate(22.5) translate(6, -7.3)" />
+       <use xlinkHref="#line" transform="rotate(67.5) translate(5, -25.3)" />
+       <use xlinkHref="#line" transform="rotate(-67.5) translate(-26, 4.3)" />
+       </g>
+      <circle fill="black"
+         r="16"
+	 cx="16"
+	 cy="17"
+         stroke="black"
+         strokeWidth="2"
+	 />
+</mask>
+</defs>
 <symbol id="aqr-about-icon" viewBox="-1.4 -0.2 42 38" >
       <circle fill="none"
          r="17"
@@ -46,43 +86,6 @@ class SVGSprites extends Component {
          fill="black"
         />
 </mask> 
-<mask id="line-masking" >
-    <g stroke="white" fill="white">
-       <use xlinkHref="#line-small" />
-       <use xlinkHref="#line-small" transform="rotate(-20) translate(-4.2, 3.3)" />
-       <use xlinkHref="#line-small" transform="rotate(17) translate(1.7, -3.3)" />
-       <use xlinkHref="#line-small" transform="rotate(35) translate(1.5, -8)" />
-    </g>
-       <path 
-         d="
-         M 16 2 
-         A 1 1 0 0 1 16 15
-         A 1 1 0 1 1 16 2
-         "
-         stroke="black"
-         strokeWidth="2"
-         fill="black"
-        />
-</mask> 
-<mask id="masking" >
-       <g fill="white" stroke="white" strokeWidth="2">
-       <use xlinkHref="#line" stroke="white" />
-       <use xlinkHref="#line" transform="rotate(90) translate(0, -33)" />
-       <use xlinkHref="#line" transform="rotate(45) translate(7, -16.3)" />
-       <use xlinkHref="#line" transform="rotate(-45) translate(-17, 6.3)"   />
-       <use xlinkHref="#line" transform="rotate(-22.5) translate(-8, 5)" />
-       <use xlinkHref="#line" transform="rotate(22.5) translate(6, -7.3)" />
-       <use xlinkHref="#line" transform="rotate(67.5) translate(5, -25.3)" />
-       <use xlinkHref="#line" transform="rotate(-67.5) translate(-26, 4.3)" />
-       </g>
-      <circle fill="black"
-         r="16"
-	 cx="16"
-	 cy="17"
-         stroke="black"
-         strokeWidth="2"
-	 />
-</mask>
 </defs>
 
 <g mask="url(#masking)" fill="black" stroke="black">

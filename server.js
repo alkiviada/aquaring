@@ -935,6 +935,51 @@ var SVGSprites = function (_Component) {
         { className: "svg-icons", width: "0", height: "0", "aria-hidden": "true",
           xmlns: "http://www.w3.org/2000/svg", version: "1.1", xmlnsXlink: "http://www.w3.org/1999/xlink" },
         _react2.default.createElement(
+          "defs",
+          null,
+          _react2.default.createElement(
+            "mask",
+            { id: "line-masking" },
+            _react2.default.createElement(
+              "g",
+              { stroke: "white", fill: "white" },
+              _react2.default.createElement("use", { xlinkHref: "#line-small" }),
+              _react2.default.createElement("use", { xlinkHref: "#line-small", transform: "rotate(-20) translate(-4.2, 3.3)" }),
+              _react2.default.createElement("use", { xlinkHref: "#line-small", transform: "rotate(17) translate(1.7, -3.3)" }),
+              _react2.default.createElement("use", { xlinkHref: "#line-small", transform: "rotate(35) translate(1.5, -8)" })
+            ),
+            _react2.default.createElement("path", {
+              d: " M 16 2  A 1 1 0 0 1 16 15 A 1 1 0 1 1 16 2 ",
+              stroke: "black",
+              strokeWidth: "2",
+              fill: "black"
+            })
+          ),
+          _react2.default.createElement(
+            "mask",
+            { id: "masking" },
+            _react2.default.createElement(
+              "g",
+              { fill: "white", stroke: "white", strokeWidth: "2" },
+              _react2.default.createElement("use", { xlinkHref: "#line", stroke: "white" }),
+              _react2.default.createElement("use", { xlinkHref: "#line", transform: "rotate(90) translate(0, -33)" }),
+              _react2.default.createElement("use", { xlinkHref: "#line", transform: "rotate(45) translate(7, -16.3)" }),
+              _react2.default.createElement("use", { xlinkHref: "#line", transform: "rotate(-45) translate(-17, 6.3)" }),
+              _react2.default.createElement("use", { xlinkHref: "#line", transform: "rotate(-22.5) translate(-8, 5)" }),
+              _react2.default.createElement("use", { xlinkHref: "#line", transform: "rotate(22.5) translate(6, -7.3)" }),
+              _react2.default.createElement("use", { xlinkHref: "#line", transform: "rotate(67.5) translate(5, -25.3)" }),
+              _react2.default.createElement("use", { xlinkHref: "#line", transform: "rotate(-67.5) translate(-26, 4.3)" })
+            ),
+            _react2.default.createElement("circle", { fill: "black",
+              r: "16",
+              cx: "16",
+              cy: "17",
+              stroke: "black",
+              strokeWidth: "2"
+            })
+          )
+        ),
+        _react2.default.createElement(
           "symbol",
           { id: "aqr-about-icon", viewBox: "-1.4 -0.2 42 38" },
           _react2.default.createElement("circle", { fill: "none",
@@ -973,47 +1018,6 @@ var SVGSprites = function (_Component) {
                 stroke: "black",
                 strokeWidth: "1",
                 fill: "black"
-              })
-            ),
-            _react2.default.createElement(
-              "mask",
-              { id: "line-masking" },
-              _react2.default.createElement(
-                "g",
-                { stroke: "white", fill: "white" },
-                _react2.default.createElement("use", { xlinkHref: "#line-small" }),
-                _react2.default.createElement("use", { xlinkHref: "#line-small", transform: "rotate(-20) translate(-4.2, 3.3)" }),
-                _react2.default.createElement("use", { xlinkHref: "#line-small", transform: "rotate(17) translate(1.7, -3.3)" }),
-                _react2.default.createElement("use", { xlinkHref: "#line-small", transform: "rotate(35) translate(1.5, -8)" })
-              ),
-              _react2.default.createElement("path", {
-                d: " M 16 2  A 1 1 0 0 1 16 15 A 1 1 0 1 1 16 2 ",
-                stroke: "black",
-                strokeWidth: "2",
-                fill: "black"
-              })
-            ),
-            _react2.default.createElement(
-              "mask",
-              { id: "masking" },
-              _react2.default.createElement(
-                "g",
-                { fill: "white", stroke: "white", strokeWidth: "2" },
-                _react2.default.createElement("use", { xlinkHref: "#line", stroke: "white" }),
-                _react2.default.createElement("use", { xlinkHref: "#line", transform: "rotate(90) translate(0, -33)" }),
-                _react2.default.createElement("use", { xlinkHref: "#line", transform: "rotate(45) translate(7, -16.3)" }),
-                _react2.default.createElement("use", { xlinkHref: "#line", transform: "rotate(-45) translate(-17, 6.3)" }),
-                _react2.default.createElement("use", { xlinkHref: "#line", transform: "rotate(-22.5) translate(-8, 5)" }),
-                _react2.default.createElement("use", { xlinkHref: "#line", transform: "rotate(22.5) translate(6, -7.3)" }),
-                _react2.default.createElement("use", { xlinkHref: "#line", transform: "rotate(67.5) translate(5, -25.3)" }),
-                _react2.default.createElement("use", { xlinkHref: "#line", transform: "rotate(-67.5) translate(-26, 4.3)" })
-              ),
-              _react2.default.createElement("circle", { fill: "black",
-                r: "16",
-                cx: "16",
-                cy: "17",
-                stroke: "black",
-                strokeWidth: "2"
               })
             )
           ),
