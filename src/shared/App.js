@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Link, Switch, Route } from "react-router-dom";
 import Home from "./Home";
 import Team from "./Team";
+import JoinUs from "./JoinUs";
 
 class App extends Component {
   constructor(props) { 
@@ -37,6 +38,7 @@ class App extends Component {
     return (
       <Switch>
         <Route path="/team" render={(props) => <Team {...props} headerCn={this.state.headerCn} />} />
+        <Route path="/join" render={(props) => <JoinUs {...props} headerCn={this.state.headerCn} />} />
         <Route path="/" render={(props) => <Home {...props} headerCn={this.state.headerCn} />} />
       </Switch>
     )

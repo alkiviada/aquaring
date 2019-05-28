@@ -196,6 +196,10 @@ var _Team = __webpack_require__(15);
 
 var _Team2 = _interopRequireDefault(_Team);
 
+var _JoinUs = __webpack_require__(16);
+
+var _JoinUs2 = _interopRequireDefault(_JoinUs);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -252,6 +256,9 @@ var App = function (_Component) {
         null,
         _react2.default.createElement(_reactRouterDom.Route, { path: "/team", render: function render(props) {
             return _react2.default.createElement(_Team2.default, _extends({}, props, { headerCn: _this2.state.headerCn }));
+          } }),
+        _react2.default.createElement(_reactRouterDom.Route, { path: "/join", render: function render(props) {
+            return _react2.default.createElement(_JoinUs2.default, _extends({}, props, { headerCn: _this2.state.headerCn }));
           } }),
         _react2.default.createElement(_reactRouterDom.Route, { path: "/", render: function render(props) {
             return _react2.default.createElement(_Home2.default, _extends({}, props, { headerCn: _this2.state.headerCn }));
@@ -435,7 +442,6 @@ var Header = function (_Component) {
     value: function render() {
       var location = this.props.location;
 
-      console.log(location);
       var navLnks = ['/', '/team', '/join'];
       var active = navLnks.find(function (l) {
         return l == location.pathname;
@@ -479,7 +485,11 @@ var Header = function (_Component) {
             _react2.default.createElement(
               "li",
               { className: "aqr-top-nav-li" },
-              _react2.default.createElement(
+              active == '/join' ? _react2.default.createElement(
+                "strong",
+                null,
+                "Join Us"
+              ) : _react2.default.createElement(
                 "a",
                 { className: navLnksCnames['/join'], href: "/join", "area-label": "Join Us" },
                 "Join Us"
@@ -1345,6 +1355,325 @@ var Team = function (_Component) {
 }(_react.Component);
 
 exports.default = Team;
+
+/***/ }),
+/* 16 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _Header = __webpack_require__(8);
+
+var _Header2 = _interopRequireDefault(_Header);
+
+var _MainTitle = __webpack_require__(14);
+
+var _MainTitle2 = _interopRequireDefault(_MainTitle);
+
+var _SVGSprites = __webpack_require__(11);
+
+var _SVGSprites2 = _interopRequireDefault(_SVGSprites);
+
+var _Engineer = __webpack_require__(17);
+
+var _Engineer2 = _interopRequireDefault(_Engineer);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var JoinUs = function (_Component) {
+  _inherits(JoinUs, _Component);
+
+  function JoinUs(props) {
+    _classCallCheck(this, JoinUs);
+
+    var _this = _possibleConstructorReturn(this, (JoinUs.__proto__ || Object.getPrototypeOf(JoinUs)).call(this, props));
+
+    _this.state = {
+      positionShow: { 'eng': 0 }
+    };
+    _this.positionShowMore = _this.positionShowMore.bind(_this);
+    return _this;
+  }
+
+  _createClass(JoinUs, [{
+    key: "positionShowMore",
+    value: function positionShowMore(e, position) {
+      e.preventDefault();
+      this.setState({ positionShow: _extends({}, this.state.positionShow, _defineProperty({}, position, 1)) });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this2 = this;
+
+      return _react2.default.createElement(
+        _react.Fragment,
+        null,
+        _react2.default.createElement(_SVGSprites2.default, null),
+        _react2.default.createElement(_Header2.default, { headerCn: this.props.headerCn }),
+        _react2.default.createElement(
+          "main",
+          { className: "join-us", role: "main" },
+          _react2.default.createElement(_MainTitle2.default, null),
+          _react2.default.createElement(
+            "section",
+            { className: "aqr-join-us" },
+            _react2.default.createElement(
+              "p",
+              null,
+              "AquaRing Energy is searching for experts and enthusiasts in clean energy and technology to join our team. Please take a look at our open positions and share your resume with us."
+            )
+          ),
+          _react2.default.createElement(
+            "section",
+            { className: "aqr-positions" },
+            _react2.default.createElement(
+              "div",
+              { className: "aqr-section-head-wrapper" },
+              _react2.default.createElement(
+                "h3",
+                { className: "aqr-section-heading" },
+                "Multi-Physics Simulation Engineer"
+              )
+            ),
+            _react2.default.createElement(
+              "p",
+              null,
+              "AquaRing Energy is a renewable power technology company that is currently specializing in the emerging market for renewable yet dependable evening and night-time power. Our team needs a multi-physics simulation expert with training and experience in electromagnetic and electromechanical simulation to develop accurate computer models of our technology.",
+              !this.state.positionShow['eng'] ? _react2.default.createElement(
+                "button",
+                { className: "aqr-read-button", onClick: function onClick(e) {
+                    return _this2.positionShowMore(e, 'eng');
+                  } },
+                "Read More ",
+                _react2.default.createElement(
+                  "span",
+                  { className: "visually-hidden" },
+                  "about Multi-Physics Simulation Engineer position"
+                )
+              ) : ''
+            ),
+            this.state.positionShow['eng'] ? _react2.default.createElement(_Engineer2.default, null) : ''
+          )
+        ),
+        _react2.default.createElement("footer", { role: "contentinfo" })
+      );
+    }
+  }]);
+
+  return JoinUs;
+}(_react.Component);
+
+exports.default = JoinUs;
+
+/***/ }),
+/* 17 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var EngineerPosition = function (_Component) {
+  _inherits(EngineerPosition, _Component);
+
+  function EngineerPosition() {
+    _classCallCheck(this, EngineerPosition);
+
+    return _possibleConstructorReturn(this, (EngineerPosition.__proto__ || Object.getPrototypeOf(EngineerPosition)).apply(this, arguments));
+  }
+
+  _createClass(EngineerPosition, [{
+    key: "render",
+    value: function render() {
+
+      return _react2.default.createElement(
+        _react.Fragment,
+        null,
+        _react2.default.createElement(
+          "p",
+          null,
+          "You will be a successful team member if you: "
+        ),
+        _react2.default.createElement(
+          "ul",
+          null,
+          _react2.default.createElement(
+            "li",
+            { className: "aqr-position-li" },
+            "Are a fast learner - the kind of person who always has their head in the game "
+          ),
+          _react2.default.createElement(
+            "li",
+            { className: "aqr-position-li" },
+            "Have a track record of discovering opportunities to optimize and innovate "
+          ),
+          _react2.default.createElement(
+            "li",
+            { className: "aqr-position-li" },
+            "Are persistent - someone who isn\u2019t easily thwarted or become frustrated when simulation tools throw up the occasional roadblock "
+          ),
+          _react2.default.createElement(
+            "li",
+            { className: "aqr-position-li" },
+            "Have good engineering common sense "
+          ),
+          _react2.default.createElement(
+            "li",
+            { className: "aqr-position-li" },
+            "Know how to come up with ways to verify your own findings "
+          ),
+          _react2.default.createElement(
+            "li",
+            { className: "aqr-position-li" },
+            "Have presentation skills and a confident, knowledgeable demeanor "
+          ),
+          _react2.default.createElement(
+            "li",
+            { className: "aqr-position-li" },
+            "Know how to inspire your audience and defend your work when we share discoveries and proposals with potential investors and customers "
+          ),
+          _react2.default.createElement(
+            "li",
+            { className: "aqr-position-li" },
+            "Are resourceful - you can find people to help us when we need help "
+          ),
+          _react2.default.createElement(
+            "li",
+            { className: "aqr-position-li" },
+            "Know how to reach out and build great working relationships with other people both inside and outside the company "
+          )
+        ),
+        _react2.default.createElement(
+          "p",
+          null,
+          "The successful applicants will be able to demonstrate expertise at Low Frequency Computational Electromagnetics simulation using software such as: "
+        ),
+        _react2.default.createElement(
+          "ul",
+          null,
+          _react2.default.createElement(
+            "li",
+            { className: "aqr-position-li" },
+            "Ansys - Maxwell "
+          ),
+          _react2.default.createElement(
+            "li",
+            { className: "aqr-position-li" },
+            "COMSOL "
+          ),
+          _react2.default.createElement(
+            "li",
+            { className: "aqr-position-li" },
+            "CST Studio Suite "
+          ),
+          _react2.default.createElement(
+            "li",
+            { className: "aqr-position-li" },
+            "Solidworks w/ EMS "
+          ),
+          _react2.default.createElement(
+            "li",
+            { className: "aqr-position-li" },
+            "INTEGRATED Engineering Software - Ampre "
+          ),
+          _react2.default.createElement(
+            "li",
+            { className: "aqr-position-li" },
+            "MSC.NASTRAN "
+          ),
+          _react2.default.createElement(
+            "li",
+            { className: "aqr-position-li" },
+            "Opera "
+          ),
+          _react2.default.createElement(
+            "li",
+            { className: "aqr-position-li" },
+            "Flux "
+          ),
+          _react2.default.createElement(
+            "li",
+            { className: "aqr-position-li" },
+            "Fluent "
+          ),
+          _react2.default.createElement(
+            "li",
+            { className: "aqr-position-li" },
+            "Autodesk - EMWorks "
+          )
+        ),
+        _react2.default.createElement(
+          "p",
+          null,
+          "AquaRing Energy provides a unique opportunity for an adventurous and talented physicist or engineer to start near the top of a growing renewable energy corporation (as opposed to working their way up from the bottom of an older and already-established firm). This position offers many learning and skill-building opportunities. "
+        ),
+        _react2.default.createElement(
+          "p",
+          null,
+          "Perhaps most importantly, AquaRing Energy provides you with the opportunity to not only shape your own future, but also a chance to help define the future of our planet. Our mission is to develop \u201Cmoonshot\u201D technologies that have the potential to preserve the beauty and diversity of the planet, and to inspire hope and enthusiasm about the future of the human civilization. "
+        ),
+        _react2.default.createElement(
+          "p",
+          null,
+          "Join us and make a difference!"
+        ),
+        _react2.default.createElement(
+          "p",
+          null,
+          "Send a resume and a one-page statement of interest and qualifications, or questions, to ",
+          _react2.default.createElement(
+            "a",
+            { href: "mailto:contactus@aquaringenergy.com" },
+            "contactus@aquaringenergy.com"
+          )
+        )
+      );
+    }
+  }]);
+
+  return EngineerPosition;
+}(_react.Component);
+
+exports.default = EngineerPosition;
 
 /***/ })
 /******/ ]);

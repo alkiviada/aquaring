@@ -6,7 +6,6 @@ class Header extends Component {
 
   render() {
     const { location } = this.props
-    console.log(location)
     const navLnks = [ '/', '/team', '/join' ]
     const active = navLnks.find(l => l == location.pathname)
     const navLnksCnames = navLnks.reduce((o, l) =>
@@ -27,7 +26,9 @@ class Header extends Component {
        <li className="aqr-top-nav-li">
        { active == '/team' ? <strong>Our Team</strong> : <a className={navLnksCnames['/team']} href="/team" area-label="Our Team">Our Team</a>}
        </li>
-       <li className="aqr-top-nav-li"><a className={navLnksCnames['/join']} href="/join" area-label="Join Us">Join Us</a></li>
+       <li className="aqr-top-nav-li">
+       { active == '/join' ? <strong>Join Us</strong> : <a className={navLnksCnames['/join']} href="/join" area-label="Join Us">Join Us</a>}
+       </li>
        </ul>
        </nav>
       </header>

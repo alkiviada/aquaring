@@ -149,6 +149,10 @@ label {
   outline: none;
   border: 1px solid black;
 }
+.aqr-read-button:focus {
+  outline: none;
+  border: 1px solid black;
+}
 
 .aqr-send-button {
   border: none; 
@@ -318,29 +322,49 @@ main.team {
   grid-template-areas: "title title title"
     ". team .";
 }
-
-.aqr-team-members {
-  margin-top: 1em;
-  grid-area: team;
+main.join-us {
+  grid-area: center;
+  display: grid;
+  grid-template-columns: .35fr 1fr .35fr;
+  grid-template-rows: 16em 1fr;
+  grid-template-areas: "title title title"
+    ". join-us ."
+    ". positions .";
 }
- 
-
 @media(max-width: 1000px) {
-main {
+main.home, main.join-us, main.team {
   grid-template-columns: .25fr 1fr .25fr;
 }
 }
 
 @media(max-width: 900px) {
-main {
+main.home, main.join-us, main.team {
   grid-template-columns: .15fr 1fr .15fr;
 }
 }
 @media(max-width: 800px) {
-main {
+main.home, main.join-us, main.team {
   grid-template-columns: .1fr 1fr .1fr;
 }
 }
+
+.aqr-positions {
+  margin-top: 1em;
+  grid-area: positions;
+
+}
+
+.aqr-team-members {
+  margin-top: 1em;
+  grid-area: team;
+}
+
+.aqr-join-us {
+  margin-top: 1em;
+  grid-area: join-us;
+}
+ 
+
 
 .aqr-member-headshot {
   width: 125px;
@@ -543,9 +567,10 @@ header {
   letter-spacing: -.5px;
   font-size: 1rem;
   text-decoration: none;
-  padding: .1em .5em;
+  padding: 0 .2em;
   margin-top: .2em;
-  width: 5em;
+  margin-left: .2em;
+  width: 4em;
   height: 2em;
   border-radius: 5px;
   cursor: pointer; 
@@ -578,4 +603,9 @@ em {
 .aqr-alert {
   color: red;
   margin: 1em auto;
+}
+
+.aqr-position-li {
+  margin-left: 1.8em;
+  font-size: 1.3rem;
 }
