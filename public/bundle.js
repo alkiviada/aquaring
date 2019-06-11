@@ -15706,7 +15706,7 @@ var Logo = function (_Component) {
 
       return _react2.default.createElement(
         "svg",
-        { viewBox: "-1.4 -0.8 35.8 39", height: "100%", width: "100%",
+        { viewBox: "-1.4 -0.8 35.8 39", height: "10%", width: "10%",
           xmlns: "http://www.w3.org/2000/svg", version: "1.1", xmlnsXlink: "http://www.w3.org/1999/xlink", className: "aqr-logo", "aria-hidden": "true" },
         _react2.default.createElement(
           "defs",
