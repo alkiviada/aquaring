@@ -140,7 +140,7 @@ class SVGSprites extends Component {
 <text x="3" y="5" className="aqr-news-caps">a</text>
 <path  className="aqr-news-waves"
   d="
-  M 10 3
+  M 9.7 3
   A 1 1 0 0 0 16 3
   A 1 1 0 0 0 20 3
   A 1 1 0 0 0 24 3
@@ -151,7 +151,7 @@ class SVGSprites extends Component {
 <text x="1" y="18" className="aqr-news-caps">Q</text>
 <path className="aqr-news-waves"
   d="
-  M 20 18
+  M 20 19
   A 1 1 0 0 0 24 18
   A 1 1 0 0 0 28 18
   A 1 1 0 0 0 32 18
@@ -160,8 +160,8 @@ class SVGSprites extends Component {
 <text x="3" y="31" className="aqr-news-caps">R</text>
 <path  className="aqr-news-waves"
   d="
-  M 12.2 30.8
-  Q 14 29.8 16 27
+  M 12 30.8
+  C 13 31 15 28 16 27
   A 1 1 0 0 0 20 27
   A 1 1 0 0 0 24 27
   A 1 1 0 0 0 28 27

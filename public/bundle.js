@@ -2253,7 +2253,7 @@ var SVGSprites = function (_Component) {
             "a"
           ),
           _react2.default.createElement("path", { className: "aqr-news-waves",
-            d: " M 10 3 A 1 1 0 0 0 16 3 A 1 1 0 0 0 20 3 A 1 1 0 0 0 24 3 A 1 1 0 0 0 28 3 A 1 1 0 0 0 32 3 "
+            d: " M 9.7 3 A 1 1 0 0 0 16 3 A 1 1 0 0 0 20 3 A 1 1 0 0 0 24 3 A 1 1 0 0 0 28 3 A 1 1 0 0 0 32 3 "
           }),
           _react2.default.createElement(
             "text",
@@ -2261,7 +2261,7 @@ var SVGSprites = function (_Component) {
             "Q"
           ),
           _react2.default.createElement("path", { className: "aqr-news-waves",
-            d: " M 20 18 A 1 1 0 0 0 24 18 A 1 1 0 0 0 28 18 A 1 1 0 0 0 32 18 "
+            d: " M 20 19 A 1 1 0 0 0 24 18 A 1 1 0 0 0 28 18 A 1 1 0 0 0 32 18 "
           }),
           _react2.default.createElement(
             "text",
@@ -2269,7 +2269,7 @@ var SVGSprites = function (_Component) {
             "R"
           ),
           _react2.default.createElement("path", { className: "aqr-news-waves",
-            d: " M 12.2 30.8 Q 14 29.8 16 27 A 1 1 0 0 0 20 27 A 1 1 0 0 0 24 27 A 1 1 0 0 0 28 27 A 1 1 0 0 0 32 27 "
+            d: " M 12 30.8 C 13 31 15 28 16 27 A 1 1 0 0 0 20 27 A 1 1 0 0 0 24 27 A 1 1 0 0 0 28 27 A 1 1 0 0 0 32 27 "
           })
         )
       );

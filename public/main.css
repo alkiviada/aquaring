@@ -219,6 +219,10 @@ label {
 }
 }
 
+.section {
+  margin-top: 2em;
+}
+
 
 .aqr-section-head-wrapper {  
   display: flex;
@@ -243,8 +247,7 @@ label {
 .aqr-news-waves {
   fill: none;
   stroke: black;
-  stroke-width: .8px;
-
+  stroke-width: .6px;
 }
 
 p {
@@ -381,6 +384,7 @@ main.home, main.join-us, main.team {
   width: 10%;
   height: auto;
   transition: all 300ms cubic-bezier(.215,.61,.355,1);
+  overflow: visible;
 }
 
 .aqr-header-sticky .aqr-logo {
